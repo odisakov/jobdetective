@@ -1,6 +1,6 @@
-class CreateTeches < ActiveRecord::Migration[5.1]
+class CreateTools < ActiveRecord::Migration[5.1]
   def change
-    create_table :teches do |t|
+    create_table :tools do |t|
       t.string :name
       t.string :category
       t.text :description
