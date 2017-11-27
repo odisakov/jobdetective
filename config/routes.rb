@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'leads/index'
+
+  get 'leads/create'
+
+  get 'leads/update'
+
+  get 'leads/show'
+
+  get 'leads/destroy'
+
+  get 'companies/index'
+
+  get 'companies/show'
+
+  get 'user_tools/update'
+
+  get 'users/update'
+
   get 'profile', to: 'profile#edit'
   resources :users, only: :update
   resources :user_tools, only: :update

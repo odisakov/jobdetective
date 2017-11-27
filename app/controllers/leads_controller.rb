@@ -2,12 +2,15 @@ class LeadsController < ApplicationController
   def index
   end
 
+  def create
+  end
+
   def update
   end
 
-  def destroy
+  def show
   end
 
-  def create
+  def destroy
   end
 end
