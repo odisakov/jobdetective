@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127145143) do
+ActiveRecord::Schema.define(version: 20171127182434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,36 +19,28 @@ ActiveRecord::Schema.define(version: 20171127145143) do
     t.string "name"
     t.string "city"
     t.string "country"
-    t.string "crunchbase_uuid"
-    t.string "crunchbase_url"
-    t.string "homepage_domain"
-    t.string "profile_image_url"
-    t.string "linkedin_url"
     t.text "short_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "company_teches", force: :cascade do |t|
-    t.bigint "tech_id"
+  create_table "company_tools", force: :cascade do |t|
+    t.bigint "tool_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_company_teches_on_company_id"
-    t.index ["tech_id"], name: "index_company_teches_on_tech_id"
+    t.index ["company_id"], name: "index_company_tools_on_company_id"
+    t.index ["tool_id"], name: "index_company_tools_on_tool_id"
   end
 
   create_table "leads", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "contact_id"
     t.string "status"
-    t.text "description"
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
-  create_table "teches", force: :cascade do |t|
+  create_table "tools", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.text "description"
@@ -56,13 +48,13 @@ ActiveRecord::Schema.define(version: 20171127145143) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_teches", force: :cascade do |t|
+  create_table "user_tools", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "tech_id"
+    t.bigint "tool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tech_id"], name: "index_user_teches_on_tech_id"
-    t.index ["user_id"], name: "index_user_teches_on_user_id"
+    t.index ["tool_id"], name: "index_user_tools_on_tool_id"
+    t.index ["user_id"], name: "index_user_tools_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,9 +74,8 @@ ActiveRecord::Schema.define(version: 20171127145143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "company_teches", "companies"
-  add_foreign_key "company_teches", "teches"
-  add_foreign_key "leads", "users"
-  add_foreign_key "user_teches", "teches"
-  add_foreign_key "user_teches", "users"
+  add_foreign_key "company_tools", "companies"
+  add_foreign_key "company_tools", "tools"
+  add_foreign_key "user_tools", "tools"
+  add_foreign_key "user_tools", "users"
 end
