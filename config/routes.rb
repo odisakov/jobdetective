@@ -1,15 +1,27 @@
 Rails.application.routes.draw do
-  get 'leads/index'
+  # get 'user_techs/create'
 
-  get 'leads/update'
+  # get 'users/update'
 
-  get 'leads/destroy'
+  # get 'leads/index'
 
-  get 'leads/create'
+  # get 'leads/update'
 
-  get 'companies/index'
+  # get 'leads/destroy'
 
-  get 'companies/show'
+  # get 'leads/create'
+
+  # get 'companies/index'
+
+  # get 'companies/show'
+
+  get 'profile', to: 'profile#edit'
+  resources :users, only: :update
+  resources :user_tools, only: :update
+
+  resources :companies, only: [:index, :show]
+
+  resources :leads, only: [:index, :create, :update, :destroy]
 
   devise_for :users
   root to: 'pages#home'

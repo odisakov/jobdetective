@@ -1,11 +1,9 @@
 class CreateLeads < ActiveRecord::Migration[5.1]
   def change
     create_table :leads do |t|
-      t.references :user, foreign_key: true
-      t.integer :contact_id
       t.string :status
-      t.text :description
-
+      t.text :notes
+      t.references :user, foreign_key: true, index: true
       t.timestamps
     end
   end
