@@ -1,20 +1,4 @@
 Rails.application.routes.draw do
-  # get 'user_techs/create'
-
-  # get 'users/update'
-
-  # get 'leads/index'
-
-  # get 'leads/update'
-
-  # get 'leads/destroy'
-
-  # get 'leads/create'
-
-  # get 'companies/index'
-
-  # get 'companies/show'
-
   get 'profile', to: 'profile#edit'
   resources :users, only: :update
   resources :user_tools, only: :update
