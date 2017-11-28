@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20171127182434) do
   create_table "leads", force: :cascade do |t|
     t.string "status"
     t.text "notes"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
   create_table "tools", force: :cascade do |t|
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20171127182434) do
 
   add_foreign_key "company_tools", "companies"
   add_foreign_key "company_tools", "tools"
+  add_foreign_key "leads", "users"
   add_foreign_key "user_tools", "tools"
   add_foreign_key "user_tools", "users"
 end
