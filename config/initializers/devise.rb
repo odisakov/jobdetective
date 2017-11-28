@@ -1,12 +1,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'], secure_image_url: true
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '093ba266e0b14813aa6b2fec9f97bbc89fa6c16412b97ff8a20f5fed17bf88602b0e98141083485cc5bd07ca42132171a6f25afbfb317718efb2008e43cfe3d5'
+  # config.secret_key = 093ba266e0b14813aa6b2fec9f97bbc89fa6c16412b97ff8a20f5fed17bf88602b0e98141083485cc5bd07ca42132171a6f25afbfb317718efb2008e43cfe3d5'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
