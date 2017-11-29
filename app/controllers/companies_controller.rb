@@ -2,18 +2,11 @@ class CompaniesController < ApplicationController
   def index
     # @companies = Company.all
 
-    @companies = Company.joins(:company_tools).joins(:tools).where(:tools => { name: [params[:tool].split(",")] })
-    # @companies = @companies.where(:tools => { name: 'ruby' } ).all
-
-    # if params[:search]
-    #   @companies = Company.includes(:company_tools)
-    #   raise
-    #   @companies = @companies.where(tool: params[:search][:tool]) if params[:search][:tool]
-
-    # else
-    #   @companies = Company.all
-    # end
-    # @companies = @companies.where(tool: params[:search][:tool]) if params[:search][:tool]
+    if params[:tool]
+      @companies = Company.joins(:company_tools).joins(:tools).where(:tools => { name: [params[:tool].split(",")] })
+    else
+      @companies = Company.all
+    end
   end
 
   def show
