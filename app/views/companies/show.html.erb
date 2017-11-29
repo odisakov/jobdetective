@@ -1,25 +1,77 @@
 <div class="wrapper">
-  <div class="container">
-<div class="row">
-  <div class="col xs-12">
-    <h1>Company Name</h1>
-  </div>
-
-  <div class="col xs-12">
-    <h2>Technology Match</h2>
-    <ul>
-      <li>
-        tool1
-      </li>
-      <li>
-        tool2
-      </li>
-    </ul>
-  </div>
+  <div class="container margin-top">
     <div class="row">
-      <div class="col xs-12 text-right">
-        <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+      <div class="col-xs-12">
+        <div class="card-white">
+          <div class="card-white-category"><%= @company.city %>, <%=@company.country  %></div>
+          <div class="card-white-description">
+            <h2><%= @company.name %></h2>
+            <p><%= @company.short_description %></p>
+          </div>
+          <%= image_tag @company.logo_url, class: "card-white-logo" %>
+          <!-- <a class="card-white-link" href="#" ></a> -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card-white">
+          <div class="card-white-category">Stack</div>
+          <div class="card-white-description">
+           <ul class="list-inline">
+            <% @company.tools.each do |tool| %>
+            <li>
+              <%= tool.name %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- <a class="card-white-link" href="#" ></a> -->
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <% @company.users.each do |user| %>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="card-white">
+        <div class="card-white-category">
+          <ul class="list-inline">
+            <li>
+              <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+           </li>
+           <li>
+            <a href=<%="mailto:#{user.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            </div>
+          </li>
+        </ul>
+
+
+
+        <div class="card-white-description">
+          <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
+          <p><%= user.employment_role %></p>
+          <%= link_to '» Add to leads', user_leads_path(user.id), class: "btn btn-primary" %>
+        </div>
+
+        <%= image_tag user.linkedin_pic_url, class: "card-white-logo" %>
+
+        <!-- <a class="card-white-link" href="#" ></a> -->
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to '« Back to Search', companies_path %>
+    </div>
+  </div>
+</div>
 </div>

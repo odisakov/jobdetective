@@ -1,2 +1,44 @@
 <h1>Companies#index</h1>
 <p>Find me in app/views/companies/index.html.erb</p>
+
+<div class="searchbar">
+  <!-- Magnifying glass icon -->
+  <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
+  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+  <%# f.input :tool, label: false, placeholder: 'Technologies' %>
+  <%# f.submit 'Search', class: 'btn btn-primary' %>
+
+  <%# end %>
+  <%= form_tag(companies_path, method: :get) do %>
+    <%= text_field_tag :tool %>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
+
+<div class="wrapper">
+
+  <div class="cards-container">
+    <div class="row">
+
+      <% @companies.each do |displaycard| %>
+
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= link_to company_path(displaycard) do %>
+        <div class="card">
+          <div class="container-logo">
+
+
+
+         </div>
+
+        <div class="card-info">
+          <p class="card-title"><%= displaycard.name  %></p>
+          <div class="card-description"> <p><%= displaycard.short_description %></p></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+  </div>
+</div>
