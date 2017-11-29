@@ -13,6 +13,10 @@ end
 100.times do
   c = Company.create!(
     name: Faker::SiliconValley.company,
+    logo_url: "http://khppu.com/assets/default_user_company_logo-3058b28cca9e293f85b78add4842bc64.png",
+    city: "Berlin",
+    country: "Germany",
+    short_description: Faker::SiliconValley.motto
     )
 end
 
