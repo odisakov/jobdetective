@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129103338) do
+ActiveRecord::Schema.define(version: 20171129143007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20171129103338) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_leads_on_person_id"
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 20171129103338) do
     t.string "token"
     t.datetime "token_expiry"
     t.string "linkedin_pic_url"
+    t.string "employment_role"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -89,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171129103338) do
   add_foreign_key "company_tools", "companies"
   add_foreign_key "company_tools", "tools"
   add_foreign_key "leads", "users"
+  add_foreign_key "leads", "users", column: "person_id"
   add_foreign_key "user_tools", "tools"
   add_foreign_key "user_tools", "users"
   add_foreign_key "users", "companies"
