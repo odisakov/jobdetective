@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="container">
+  <div class="container margin-top">
     <div class="row">
       <div class="col-xs-12">
         <div class="card-white">
@@ -20,27 +20,45 @@
         <div class="card-white">
           <div class="card-white-category">Stack</div>
           <div class="card-white-description">
-            <p>
-              <ul class="list-inline">
-              <% @company.tools.each do |tool| %>
-                <li>
-                  <%= tool.name %>
-                </li>
-              <% end %>
-              </ul>
-
-
-            </p>
-          </div>
-          <!-- <a class="card-white-link" href="#" ></a> -->
+           <ul class="list-inline">
+            <% @company.tools.each do |tool| %>
+            <li>
+              <%= tool.name %>
+            </li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 text-right">
-        <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+        <!-- <a class="card-white-link" href="#" ></a> -->
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <% @company.users.each do |user| %>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="card-white">
+        <div class="card-white-category"><%= user.email %></div>
+        <div class="card-white-description">
+          <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
+          <p><%= @company.short_description %></p>
+        <%= link_to '» Add to leads', "#", class: "btn btn-primary" %>
+        </div>
+        <%= image_tag @company.logo_url, class: "card-white-logo" %>
+
+        <!-- <a class="card-white-link" href="#" ></a> -->
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-12 text-right">
+      <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
 </div>
