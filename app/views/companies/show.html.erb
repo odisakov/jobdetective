@@ -1,39 +1,21 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col xs-12">
-
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('');">
-          <div class="card-category"><%= @company.city %>, <%=@company.country  %></div>
-          <div class="card-description">
+      <div class="col-xs-12">
+        <div class="card-white">
+          <div class="card-white-category"><%= @company.city %>, <%=@company.country  %></div>
+          <div class="card-white-description">
             <h2><%= @company.name %></h2>
             <p><%= @company.short_description %></p>
           </div>
-          <%= image_tag @company.logo_url, class: "card-logo" %>
-          <!-- <img class="card-logo" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-          <a class="card-link" href="#" ></a>
-
-
-
-
+          <%= image_tag @company.logo_url, class: "card-white-logo" %>
+          <a class="card-white-link" href="#" ></a>
         </div>
-
-
       </div>
+    </div>
 
-      <div class="col xs-12">
-        <h2>Technology Match</h2>
-        <ul>
-          <li>
-            tool1
-          </li>
-          <li>
-            tool2
-          </li>
-        </ul>
-      </div>
       <div class="row">
-        <div class="col xs-12 text-right">
+        <div class="col-xs-12 text-right">
           <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
         </div>
       </div>
