@@ -9,15 +9,38 @@
             <p><%= @company.short_description %></p>
           </div>
           <%= image_tag @company.logo_url, class: "card-white-logo" %>
-          <a class="card-white-link" href="#" ></a>
+          <!-- <a class="card-white-link" href="#" ></a> -->
         </div>
       </div>
     </div>
 
-      <div class="row">
-        <div class="col-xs-12 text-right">
-          <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card-white">
+          <div class="card-white-category">Stack</div>
+          <div class="card-white-description">
+            <p>
+              <ul class="list-inline">
+              <% @company.tools.each do |tool| %>
+                <li>
+                  <%= tool.name %>
+                </li>
+              <% end %>
+              </ul>
+
+
+            </p>
+          </div>
+          <!-- <a class="card-white-link" href="#" ></a> -->
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+      </div>
+    </div>
   </div>
+</div>
