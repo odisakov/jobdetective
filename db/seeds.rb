@@ -10,14 +10,14 @@ end
 
 
 
-10.times do
+100.times do
   c = Company.create!(
     name: Faker::SiliconValley.company,
     )
 end
 
 
-10.times do
+100.times do
   u = User.create!(
     # name: Faker::Name.name,
     company: Company.order("RANDOM()").first,
@@ -26,7 +26,7 @@ end
     )
 end
 
-30.times do
+300.times do
   ct = CompanyTool.create!(
     company_id: rand(1..10),
     tool_id: rand(1..10)
@@ -34,7 +34,7 @@ end
 end
 
 
-30.times do
+300.times do
   ct = UserTool.create!(
     user_id: rand(1..10),
     tool_id: rand(1..10)
