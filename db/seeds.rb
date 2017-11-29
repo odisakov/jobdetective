@@ -36,7 +36,7 @@ end
     )
 end
 
-300.times do
+10.times do
   ct = CompanyTool.create!(
     company_id: rand(1..10),
     tool_id: rand(1..10)
@@ -44,7 +44,7 @@ end
 end
 
 
-300.times do
+10.times do
   ct = UserTool.create!(
     user_id: rand(1..10),
     tool_id: rand(1..10)
