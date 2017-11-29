@@ -54,7 +54,7 @@
         <div class="card-white-description">
           <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
           <p><%= user.employment_role %></p>
-          <%= link_to '» Add to leads', "#", class: "btn btn-primary" %>
+          <%= link_to '» Add to leads', user_leads_path(user.id), class: "btn btn-primary" %>
         </div>
 
         <%= image_tag user.linkedin_pic_url, class: "card-white-logo" %>

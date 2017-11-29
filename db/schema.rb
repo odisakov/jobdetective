@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129135642) do
+ActiveRecord::Schema.define(version: 20171129143007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20171129135642) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_leads_on_person_id"
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171129135642) do
   add_foreign_key "company_tools", "companies"
   add_foreign_key "company_tools", "tools"
   add_foreign_key "leads", "users"
+  add_foreign_key "leads", "users", column: "person_id"
   add_foreign_key "user_tools", "tools"
   add_foreign_key "user_tools", "users"
   add_foreign_key "users", "companies"
