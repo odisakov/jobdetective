@@ -1,2 +1,25 @@
-<h1>Companies#show</h1>
-<p>Find me in app/views/companies/show.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+<div class="row">
+  <div class="col xs-12">
+    <h1>Company Name</h1>
+  </div>
+
+  <div class="col xs-12">
+    <h2>Technology Match</h2>
+    <ul>
+      <li>
+        tool1
+      </li>
+      <li>
+        tool2
+      </li>
+    </ul>
+  </div>
+    <div class="row">
+      <div class="col xs-12 text-right">
+        <%= link_to '« Back to Search', companies_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
