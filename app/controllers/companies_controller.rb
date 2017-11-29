@@ -1,8 +1,7 @@
 class CompaniesController < ApplicationController
   def index
-    # @companies = Company.all
 
-    if params[:tool]
+    if params[:tool].nil?
       @companies = Company.joins(:company_tools).joins(:tools).where(:tools => { name: [params[:tool].split(",")] })
     else
       @companies = Company.all
