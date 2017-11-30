@@ -8,16 +8,22 @@ class LeadsController < ApplicationController
 
   def create
     @person = User.find(params[:user_id])
-    # CHECK IF LEAD ALREADY EXIST
+    # TODO CHECK IF LEAD ALREADY EXIST
+    @company = @person.company
     @lead = Lead.new(user: current_user, person: @person)
     if @lead.save
       respond_to do |format|
-        format.js {  flash[:notice] = "Lead added" }
+        format.html { redirect_to company_path(@company) }
+        format.js # render create.js.erb
       end
-      # flash[:notice] = "Lead added"
     else
-      flash[:alert] = "We couldn't add the Lead."
-      # redirect_to @listing
+      respond_to do |format|
+        format.html {
+          flash[:alert] = "We couldn't add the Lead."
+          render "companies/show"
+        }
+        format.js
+      end
     end
   end
 
@@ -28,6 +34,9 @@ class LeadsController < ApplicationController
     # /leads/:id/destroy
     @lead = Lead.find(params[:id])
     @lead.destroy
+    respond_to do |format|
+      format.js
+    end
   end
 end
 
