@@ -50,10 +50,10 @@ csv.each do |row|
         company: c,
         tool: exist
         )
-      c.save
+      ct.save
       p "CompanyTool created"
     else
-      p "#{tool} NOT found in DB. Creating.."
+      p "#{tool} NOT found. Creating.."
       new_tool = Tool.new
       new_tool.name = tool
       new_tool.save
@@ -61,7 +61,7 @@ csv.each do |row|
         company: c,
         tool: new_tool
         )
-      c.save
+      ct.save
       p "CompanyTool created"
 
     end
