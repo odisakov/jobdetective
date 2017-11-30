@@ -6,9 +6,10 @@
   // color: white;
   position: relative;
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 15px;
   border-radius: 2px;
   background: white;
+
   // the entire card
 
 }
@@ -62,6 +63,7 @@
 .card-white-link:hover {
   opacity: 0.1;
 }
+
 .searchbar{
   margin-top: 10px;
   text-align: center;
@@ -81,4 +83,13 @@
   border-radius: 2px;
   background: white;
   padding-top: 10px;
+}
+
+.card-white-cta-buton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  // A Call-to-Action-Button in the bottom right corner
+
 }

@@ -1,2 +1,43 @@
-<h1>Leads#index</h1>
-<p>Find me in app/views/leads/index.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+<div class="row">
+
+  <% @leads.each do |lead| %>
+
+    <div class="col-xs-12 col-md-6" <%= "id = div-#{lead.id}" %> >
+      <div class="card-white">
+        <div class="card-white-category">
+          <ul class="list-inline">
+            <li>
+              <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{lead.person.first_name}%20#{lead.person.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </li>
+            <% if lead.person.email %>
+            <li>
+              <a href=<%="mailto:#{lead.person.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+        <div class="card-white-description">
+          <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
+          <p><%= lead.person.employment_role %></p>
+        </div>
+          <%= link_to '✗ Delete', lead_path(lead), class: "btn btn-danger btn-sm card-white-cta-buton", method: :delete, remote: :true, id: "close-button-#{lead.id}"
+
+          %>
+        <%= image_tag lead.person.linkedin_pic_url, class: "card-white-logo" %>
+        <!-- <a class="card-white-link" href="#" ></a> -->
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+ <div class="row">
+    <div class="col-xs-6 text-left">
+      <%= link_to '« Back to Search', companies_path %>
+    </div>
+  </div>
+  </div>
+</div>
+

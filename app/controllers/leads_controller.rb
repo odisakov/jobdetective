@@ -1,19 +1,29 @@
 class LeadsController < ApplicationController
   def index
+    @leads = Lead.where(user_id: current_user)
+  end
+
+  def new
   end
 
   def create
-    @lead = Lead.new(lead_params)
-    @lead.user = current_user
-    @lead.person = params[:user_id]
-
+    @person = User.find(params[:user_id])
+    # TODO CHECK IF LEAD ALREADY EXIST
+    @company = @person.company
+    @lead = Lead.new(user: current_user, person: @person)
     if @lead.save
-      # Redirect
-      # redirect_to @booking
-      flash[:alert] = "Lead added"
+      respond_to do |format|
+        format.html { redirect_to company_path(@company) }
+        format.js # render create.js.erb
+      end
     else
-      flash[:alert] = "We couldn't add the Lead."
-      # redirect_to @listing
+      respond_to do |format|
+        format.html {
+          flash[:alert] = "We couldn't add the Lead."
+          render "companies/show"
+        }
+        format.js
+      end
     end
   end
 
@@ -21,20 +31,14 @@ class LeadsController < ApplicationController
   end
 
   def destroy
+    # /leads/:id/destroy
+    @lead = Lead.find(params[:id])
+    @lead.destroy
+    respond_to do |format|
+      format.js
+    end
   end
-
-
-
-private
-
-  def lead_params
-    params.require(:lead).permit(:user_id)
-  end
-
 end
 
 
-# POST user_leads_path(user.id)
 
-
-# /users/:user_id/leads
