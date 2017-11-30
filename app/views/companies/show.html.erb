@@ -6,6 +6,12 @@
           <div class="card-white-category"><%= @company.city %>, <%=@company.country  %></div>
           <div class="card-white-description">
             <h2><%= @company.name %></h2>
+            <p>
+              <%= link_to @company.homepage_url do %>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+              <%= @company.homepage_domain %>
+              <% end %>
+            </p>
             <p><%= @company.short_description %></p>
           </div>
           <%= image_tag @company.logo_url, class: "card-white-logo" %>

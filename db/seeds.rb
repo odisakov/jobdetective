@@ -1,10 +1,10 @@
 require 'csv'
 require 'faker'
-require 'open-uri'
-require 'nokogiri'
+# require 'open-uri'
+# require 'nokogiri'
 
-file = "/Users/daniel/Downloads/built.html"
-doc = Nokogiri::HTML(File.open(file), nil, 'utf-8')
+# file = "/Users/daniel/Downloads/built.html"
+# doc = Nokogiri::HTML(File.open(file), nil, 'utf-8')
 
 # doc.search('.techItem > h3').each_with_index do |element, index|
 #   puts "#{index + 1}. #{element.text.strip}"
@@ -21,9 +21,10 @@ csv.each do |row|
   c.country = row['location_country_code']
   c.short_description = row['short_description']
   c.logo_url = row['profile_image_url']
+  c.homepage_url = row['homepage_url']
+  c.homepage_domain = row['homepage_domain']
   c.save
 end
-
 
 
 
