@@ -28,7 +28,7 @@ csv.each do |row|
   c.homepage_domain = row['homepage_domain']
   c.save
 
-  p "Created Company #{c.name}"
+  # p "Created Company #{c.name}"
 
 
   # Scraping Techs for Company
@@ -39,23 +39,23 @@ csv.each do |row|
   doc.search('.techItem > h3').each do |element|
     bw_tools << element.text.strip
   end
-  p "Scraping complete"
+  # p "Scraping complete"
 
   # for each tool check if exits
   bw_tools.each do |tool|
-    if tool = Tool.find_by_name(tool)
-      current_tool = tool
-      p "#{current_tool} found in DB."
+    exist = Tool.find_by_name(tool)
+    if exist
+      p "#{tool} found in DB."
       ct = CompanyTool.create!(
         company: c,
-        tool: current_tool
+        tool: exist
         )
       c.save
       p "CompanyTool created"
     else
-      p "#{current_tool} NOT found in DB. Creating.."
-      new_tool = Tool.create!
-      new_tool.name = current_tool
+      p "#{tool} NOT found in DB. Creating.."
+      new_tool = Tool.new
+      new_tool.name = tool
       new_tool.save
       ct = CompanyTool.create!(
         company: c,
