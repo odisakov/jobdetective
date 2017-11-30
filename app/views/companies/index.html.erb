@@ -1,41 +1,43 @@
-<div class="searchbar">
-  <!-- Magnifying glass icon -->
-  <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
-  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
-  <%# f.input :tool, label: false, placeholder: 'Technologies' %>
-  <%# f.submit 'Search', class: 'btn btn-primary' %>
+<div class="searchcard">
+  <div class="searchbar">
+    <!-- Magnifying glass icon -->
+    <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
+    <%# f.input :tool, label: false, placeholder: 'Technologies' %>
+    <%# f.submit 'Search', class: 'btn btn-primary' %>
 
-  <%# end %>
-  <%= form_tag(companies_path, method: :get) do %>
-  <%= text_field_tag :tool %>
-  <%= submit_tag 'Search' %>
-  <% end %>
+    <%# end %>
+    <%= form_tag(companies_path, method: :get) do %>
+    <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+    <%= text_field_tag :tool, "", class: "searchfield" %>
+    <%= submit_tag 'Search', class: "btn btn-primary" %>
+
+    <% end %>
+  </div>
 </div>
 
 <div class="wrapper">
-  <div class="card-container">
+  <div class="container margin-top">
     <div class="row">
       <% @companies.each do |displaycard| %>
 
       <div class="col-xs-12 col-sm-6 col-md-4">
         <%= link_to company_path(displaycard) do %>
         <div class="card-white">
-          <div class="card-white-info">
-            <p class="card-white-title"><%= displaycard.name  %></p>
-            <div class="card-white-description">
-             <p><%= displaycard.short_description %></p>
-           </div>
-           <%= image_tag displaycard.logo_url, class: "card-white-logo" %>
-         </div>
-            <%= link_to'', root_path, class: "card-white-link" %>
+          <div class="card-white-description">
+            <h3><%= displaycard.name  %></h3>
+            <p><%= displaycard.short_description %></p>
+          </div>
+          <%= image_tag displaycard.logo_url, class: "card-white-logo" %>
+
+          <%= link_to'', company_path(displaycard), class: "card-white-link" %>
 
 
-         <% end %>
-       </div>
-     </div>
-     <% end %>
-   </div>
- </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
