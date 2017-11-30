@@ -105,3 +105,44 @@
 .magnifying-glass{
   margin-right: 6px;
 }
+
+
+
+.effect {
+
+
+
+    transition: all 0.1s;
+    border-right:1px solid #f0f0f0;
+    border-bottom:1px solid #f0f0f0;
+
+  }
+
+
+
+
+
+  .clearer {
+    clear:both;
+  }
+
+  .effect:hover {
+    transform: scale(1.1,1.1);
+
+box-shadow: 10px 10px 91px 0px rgba(0, 127, 219,1);
+    z-index:9999;
+    border-right:1px solid transparent;
+    border-bottom:1px solid transparent;
+
+    background-color:#fff;
+  }
+
+
+
+
+
+
+
+
+
+
