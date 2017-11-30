@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
   def index
+    @leads = Lead.where(user_id: current_user)
   end
 
   def new
@@ -12,9 +13,7 @@ class LeadsController < ApplicationController
     if @lead.save
       respond_to do |format|
         format.js {  flash[:notice] = "Lead added" }
-        end
-
-
+      end
       # flash[:notice] = "Lead added"
     else
       flash[:alert] = "We couldn't add the Lead."
@@ -26,6 +25,9 @@ class LeadsController < ApplicationController
   end
 
   def destroy
+    # /leads/:id/destroy
+    @lead = Lead.find(params[:id])
+    @lead.destroy
   end
 end
 

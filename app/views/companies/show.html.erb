@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="container margin-top">
+  <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <div class="card-white">
@@ -42,45 +42,29 @@
           <ul class="list-inline">
             <li>
               <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-           </li>
+            </li>
             <% if user.email %>
-           <li>
-            <a href=<%="mailto:#{user.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <li>
+              <a href=<%="mailto:#{user.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
             </div>
           </li>
           <% end %>
         </ul>
-
-
-
         <div class="card-white-description">
           <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
           <p><%= user.employment_role %></p>
-          <% if Lead.where(user_id: current_user, person:user).first %>
-    <%= link_to '✓ Added', user_leads_path(user), method: :post, remote: true, class: "btn btn-primary disabled", id: "exilead-button-disabled-#{user.id}" %>
-            <% else %>
-            <%= link_to '» Add to leads', user_leads_path(user), method: :post, remote: true, class: "btn btn-primary", id: "lead-button-#{user.id}" %>
-          <% end %>
-
-
-
-
-
-
-
         </div>
-
+          <% if Lead.where(user_id: current_user, person:user).first %>
+          <%= link_to '✓ Added', user_leads_path(user), method: :post, remote: true, class: "btn btn-success btn-sm disabled card-white-cta-buton", id: "exilead-button-disabled-#{user.id}" %>
+          <% else %>
+          <%= link_to '» Add to leads', user_leads_path(user), method: :post, remote: true, class: "btn btn-success btn-sm card-white-cta-buton", id: "lead-button-#{user.id}" %>
+          <% end %>
         <%= image_tag user.linkedin_pic_url, class: "card-white-logo" %>
-
         <!-- <a class="card-white-link" href="#" ></a> -->
       </div>
     </div>
     <% end %>
   </div>
-
-
-
-
   <div class="row">
     <div class="col-xs-12">
       <%= link_to '« Back to Search', companies_path %>
