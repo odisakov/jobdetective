@@ -22,7 +22,7 @@
 
       <div class="col-xs-12 col-sm-6 col-md-6">
         <%= link_to company_path(displaycard) do %>
-        <div class="card-white">
+        <div class="card-white effect">
           <div class="card-white-description">
             <h2><%= displaycard.name %></h2>
             <p><%= displaycard.short_description %></p>
@@ -33,6 +33,7 @@
 
 
           <% end %>
+          <div class="clearer"></div>
         </div>
       </div>
       <% end %>
