@@ -9,6 +9,7 @@
   margin-top: 15px;
   border-radius: 2px;
   background: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
 
   // the entire card
 
@@ -69,7 +70,12 @@
   text-align: center;
 }
 .searchfield{
+  height: 39px;
   width: 350px;
+}
+.searchbtn{
+  margin-bottom: 4.45px;
+  height: 39.5px;
 }
 .searchcard{
    height: 75px;
@@ -83,7 +89,10 @@
   border-radius: 2px;
   background: white;
   padding-top: 10px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1)
 }
+
+
 
 .card-white-cta-buton {
   position: absolute;
