@@ -11,6 +11,8 @@ gem 'redis'
 gem 'omniauth-linkedin-oauth2'
 gem 'pg_search'
 gem 'nokogiri'
+gem 'clearbit'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
