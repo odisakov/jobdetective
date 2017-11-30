@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-
+<div class="row">
 
   <% @leads.each do |lead| %>
 
@@ -30,6 +30,14 @@
       </div>
     </div>
     <% end %>
+  </div>
+
+
+ <div class="row">
+    <div class="col-xs-6 text-left">
+      <%= link_to '« Back to Search', companies_path %>
+    </div>
+  </div>
   </div>
 </div>
 
