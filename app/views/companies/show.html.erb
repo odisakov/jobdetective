@@ -47,7 +47,7 @@
         <div class="card-white-category">
           <ul class="list-inline">
             <li>
-              <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}%20#{@company.name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
             </li>
             <% if user.email %>
             <li>
@@ -57,8 +57,8 @@
           <% end %>
         </ul>
         <div class="card-white-description">
-          <h2><%= "#{user.first_name} #{user.last_name}" %></h2>
-          <p><%= user.employment_role %></p>
+          <h2><%= "#{user.first_name} #{user.last_name}, #{user.title}" %></h2>
+          <p><%= "#{user.employment_role} (#{user.seniority})" %></p>
         </div>
           <% if Lead.where(user_id: current_user, person:user).first %>
           <%= link_to '✓ Added', user_leads_path(user), method: :post, remote: true, class: "btn btn-success btn-sm disabled card-white-cta-buton", id: "lead-button-disabled-#{user.id}" %>

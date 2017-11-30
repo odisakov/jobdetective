@@ -6,7 +6,53 @@ require 'clearbit'
 Clearbit.key = ENV['CLEARBIT']
 
 
-# Clearbit examplese
+# Load Companies from CSV & Add Users from Clearbit
+
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'crunch.csv'))
+
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  #Create Company
+  c = Company.new
+  c.name = row['name']
+  c.city = row['location_city']
+  c.country = row['location_country_code']
+  c.short_description = row['short_description']
+  c.logo_url = row['profile_image_url']
+  c.homepage_url = row['homepage_url']
+  c.homepage_domain = row['homepage_domain']
+  c.save
+  p "Created Company #{c.name}"
+
+  # Fetch clearbit data
+  p "Fetching clearbit employees for #{c.homepage_domain}"
+  people = Clearbit::Prospector.search(domain: c.homepage_domain)
+
+  people.each do |user|
+    # Create Users from Clearbit data
+    u = User.create!(
+     company: c,
+     email: user["email"],
+     password: Faker::Crypto.md5,
+     linkedin_pic_url: "https://dizivizi.com/mbb/imgs/site/default_user.png",
+     first_name: user["name"]["givenName"],
+     last_name: user["name"]["familyName"],
+     employment_role: user["role"],
+     title: user["title"],
+     seniority: user["seniority"]
+     )
+    p "Created User #{u.first_name} #{u.last_name}"
+  end
+end
+
+
+
+
+
+
+
+# Clearbit example
 # company = Clearbit::Enrichment::Company.find(domain: 'babbel.com') #returns company
 
 # people = Clearbit::Prospector.search(domain: 'babbel.com')
@@ -15,13 +61,33 @@ Clearbit.key = ENV['CLEARBIT']
 #   puts [person.name.full_name, person.title].join(' - ')
 # end
 
-# Clearbit People Search results
+# Clearbit People Search results => Array
+# [
 # {"id"=>"e_c8ada464-06e5-4f61-9697-a33a42e8b029", "name"=>{"fullName"=>"Boris Diebold", "givenName"=>"Boris", "familyName"=>"Diebold"}, "title"=>"CTO", "role"=>"engineering", "seniority"=>"executive", "email"=>"bdiebold@babbel.com", "verified"=>true}
 # {"id"=>"e_53880e74-0029-4567-9c85-46453dc63378", "name"=>{"fullName"=>"Markus Witte", "givenName"=>"Markus", "familyName"=>"Witte"}, "title"=>"CEO", "role"=>"ceo", "seniority"=>"executive", "email"=>"mwitte@babbel.com", "verified"=>true}
 # {"id"=>"e_173074bf-fb92-457f-a100-562f46559a4d", "name"=>{"fullName"=>"Deepa Miglani", "givenName"=>"Deepa", "familyName"=>"Miglani"}, "title"=>"SVP, Marketing", "role"=>"marketing", "seniority"=>"executive", "email"=>"dmiglani@babbel.com", "verified"=>true}
 # {"id"=>"e_82caeebe-b8eb-43eb-8ed4-21fbc75faf86", "name"=>{"fullName"=>"Scott Weiss", "givenName"=>"Scott", "familyName"=>"Weiss"}, "title"=>"VP Product Design", "role"=>"product", "seniority"=>"executive", "email"=>"sweiss@babbel.com", "verified"=>true}
 # {"id"=>"e_7910a985-570c-4d73-bea8-5bfb3db0c07a", "name"=>{"fullName"=>"Julie Hansen", "givenName"=>"Julie", "familyName"=>"Hansen"}, "title"=>"CEO, US", "role"=>"ceo", "seniority"=>"executive", "email"=>"jhansen@babbel.com", "verified"=>true}
+# ]
 
+# User from Clearbit
+# company = "Babbel"
+# user = {"id"=>"e_c8ada464-06e5-4f61-9697-a33a42e8b029", "name"=>{"fullName"=>"Boris Diebold", "givenName"=>"Boris", "familyName"=>"Diebold"}, "title"=>"CTO", "role"=>"engineering", "seniority"=>"executive", "email"=>"bdiebold@babbel.com", "verified"=>true}
+
+# u = User.create!(
+#     company: Company.find_by_name(company),
+#     email: user["email"],
+#     password: Faker::Crypto.md5,
+#     linkedin_pic_url: "https://dizivizi.com/mbb/imgs/site/default_user.png",
+#     first_name: user["name"]["givenName"],
+#     last_name: user["name"]["familyName"],
+#     employment_role: user["role"],
+#     title: user["title"],
+#     seniority: user["seniority"]
+#     )
+# u.each do |e|
+#   puts e
+# end
 
 
 
