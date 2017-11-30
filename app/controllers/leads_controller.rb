@@ -2,15 +2,20 @@ class LeadsController < ApplicationController
   def index
   end
 
-  def create
-    @lead = Lead.new(lead_params)
-    @lead.user = current_user
-    @lead.person = params[:user_id]
+  def new
+  end
 
+  def create
+    @person = User.find(params[:user_id])
+    # CHECK IF LEAD ALREADY EXIST
+    @lead = Lead.new(user: current_user, person: @person)
     if @lead.save
-      # Redirect
-      # redirect_to @booking
-      flash[:alert] = "Lead added"
+      respond_to do |format|
+        format.js {  flash[:notice] = "Lead added" }
+        end
+
+
+      # flash[:notice] = "Lead added"
     else
       flash[:alert] = "We couldn't add the Lead."
       # redirect_to @listing
@@ -22,19 +27,7 @@ class LeadsController < ApplicationController
 
   def destroy
   end
-
-
-
-private
-
-  def lead_params
-    params.require(:lead).permit(:user_id)
-  end
-
 end
 
 
-# POST user_leads_path(user.id)
 
-
-# /users/:user_id/leads
