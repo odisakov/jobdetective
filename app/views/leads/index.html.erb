@@ -20,7 +20,7 @@
         </ul>
         <div class="card-white-description">
           <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
-          <p><%= lead.person.employment_role %></p>
+          <p><%= lead.person.employment_role %> @ <%= link_to lead.person.company.name, company_path(lead.person.company) %></p>
         </div>
           <%= link_to '✗ Delete', lead_path(lead), class: "btn btn-danger btn-sm card-white-cta-buton", method: :delete, remote: :true, id: "close-button-#{lead.id}"
 

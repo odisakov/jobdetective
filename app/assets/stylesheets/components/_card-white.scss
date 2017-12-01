@@ -71,14 +71,14 @@
 }
 .searchfield{
   height: 39px;
-  width: 350px;
+  width: 60%;
 }
 .searchbtn{
   margin-bottom: 4.45px;
   height: 39.5px;
 }
 .searchcard{
-   height: 75px;
+   min-height: 75px;
   // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
