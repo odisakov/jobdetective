@@ -57,7 +57,7 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
+  background: rgb(112, 121, 127);
   opacity: 0;
   // Makes the entire card a Link if you put it at the bottom
 }
@@ -129,14 +129,12 @@
   .effect:hover {
     transform: scale(1.1,1.1);
 
-box-shadow: 10px 10px 91px 0px rgba(0, 127, 219,1);
+box-shadow: 10px 10px 91px 0px rgba(198, 231, 255,1);
     z-index:9999;
-    border-right:1px solid transparent;
-    border-bottom:1px solid transparent;
+
 
     background-color:#fff;
   }
-
 
 
 
