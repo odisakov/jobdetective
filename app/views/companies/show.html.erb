@@ -29,7 +29,8 @@
            <ul class="list-inline">
             <% @company.tools.each do |tool| %>
             <li>
-              <%= tool.name %>
+              <%= link_to tool.name, companies_path(:tool => tool.name) %>
+
             </li>
             <% end %>
           </ul>
