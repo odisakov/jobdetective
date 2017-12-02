@@ -1,12 +1,12 @@
 <div class="searchbanner">
 
-      <!-- Magnifying glass icon -->
-      <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
-      <%# f.input :tool, label: false, placeholder: 'Technologies' %>
-      <%# f.submit 'Search', class: 'btn btn-primary' %>
+  <!-- Magnifying glass icon -->
+  <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
+  <%# f.input :tool, label: false, placeholder: 'Technologies' %>
+  <%# f.submit 'Search', class: 'btn btn-primary' %>
 
-      <%# end %>
-      <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+  <%# end %>
+  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
@@ -44,6 +44,17 @@
   </div>
 </div>
 
+<div class="footer">
+  <div class="footer-links">
+    <a href="#">About</a>
+
+    <a href="https://github.com/levelev/jobdetective"><i class="fa fa-github"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    2017 JobDetective  made this site with <i class="fa fa-heart"></i>
+  </div>
+</div>
 
 
 
