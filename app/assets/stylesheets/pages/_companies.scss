@@ -1,5 +1,5 @@
 .searchbanner {
-    background-image: linear-gradient(to right top, rgba(30, 61, 99, 0.78) 50%, rgba(30, 61, 99, 0.78) 50%), url("happy-workspace.jpeg");
+    background-image: linear-gradient(to right top, rgba(30, 61, 99, 0.78) 50%, rgba(30, 61, 99, 0.78) 50%), url("office.jpeg");
   background-size: cover !important;
   background-position: top center;
   height: 300px;
@@ -52,4 +52,9 @@
   margin-top: 5px;
   padding-top: 10px;
 
+}
+
+
+.results{
+  margin-bottom: 40px;
 }
