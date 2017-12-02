@@ -28,6 +28,7 @@ class LeadsController < ApplicationController
   end
 
   def update
+    @lead = Lead.find(params[:id])
   end
 
   def destroy
