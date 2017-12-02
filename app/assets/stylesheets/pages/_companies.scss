@@ -1,0 +1,49 @@
+.searchbanner {
+    background-image: linear-gradient(to right top, rgba(30, 61, 99, 0.78) 50%, rgba(30, 61, 99, 0.78) 50%), url("second-banner.jpeg");
+  background-size: cover !important;
+  background-position: top center;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+
+
+
+.magnifying-glass{
+  margin-right: 6px;
+  color: white;
+  font-size: 39px;
+}
+
+
+.searchbar{
+  margin-top: 10px;
+  text-align: center;
+}
+.searchfield{
+  height: 39px;
+  width: 100%;
+  color: white;
+  background-color: rgba(0,0,0,0)
+}
+.searchbtn{
+  margin-bottom: 4.45px;
+  height: 39.5px;
+}
+.searchcard{
+   min-height: 75px;
+   min-width: 100px;
+   width: 276px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // color: white;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-top: 10px;
+
+}
