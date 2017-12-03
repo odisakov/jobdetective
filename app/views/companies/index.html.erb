@@ -1,22 +1,25 @@
-<div class="searchcard">
-  <div class="searchbar">
-    <!-- Magnifying glass icon -->
-    <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
-    <%# f.input :tool, label: false, placeholder: 'Technologies' %>
-    <%# f.submit 'Search', class: 'btn btn-primary' %>
+<div class="searchbanner">
 
-    <%# end %>
-    <%= form_tag(companies_path, method: :get) do %>
-    <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
-    <%= text_field_tag :tool, "", class: "searchfield" %>
-    <%= submit_tag 'Search', class: "btn btn-primary searchbtn" %>
+  <!-- Magnifying glass icon -->
+  <%# simple_form_for(:search, url: companies_path, method: :get, html: { class: 'form-inline' }) do |f| %>
+  <%# f.input :tool, label: false, placeholder: 'Technologies' %>
+  <%# f.submit 'Search', class: 'btn btn-primary' %>
 
-    <% end %>
+  <%# end %>
+  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+  <div class="searchcard">
+    <div class="searchbar">
+      <%= form_tag(companies_path, method: :get) do %>
+      <%= text_field_tag :tool, "", class: "searchfield" %>
+      <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
+
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="wrapper">
-  <div class="container margin-top">
+  <div class="container margin-top results">
     <div class="row">
       <% @companies.each do |displaycard| %>
 
@@ -40,6 +43,7 @@
     </div>
   </div>
 </div>
+
 
 
 

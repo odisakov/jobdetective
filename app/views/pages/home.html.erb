@@ -1,32 +1,84 @@
 <div class="wrapper">
   <div class="page-header first-section">
-    <div class="section-content">
-      <h1>JobDetective</h1>
-      <p>Coldstart your Carreer</p>
-      <%= link_to "Log in with LinkedIn", user_linkedin_omniauth_authorize_path, class: "btn btn-primary" %>
+    <div class="banner">
+      <div class="nav-link">
+        <a href="#how">How it works</a>
+        <a href="#team">Team</a>
+      </div>
+      <h1>Find your dream Job</h1>
+      <p>We create opportunities for you!</p>
+      <%= link_to "Sign Up", user_linkedin_omniauth_authorize_path, class: "btn btn-primary signup-button" %>
+    </div>
+  </div>
+
+  <div class= "container text-center padded">
+    <a name="how"></a>
+    <h2 class= "secondtitle">How it works</h2>
+    <div class="row">
+      <p class="col-md-8 col-md-offset-2 seconddesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aperiam quis nostrum, illum, molestiae, officiis perspiciatis ex ad, voluptate quibusdam ipsum. Quibusdam, aperiam, ducimus. Possimus sequi voluptate debitis tempore, esse.</p>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <i class="fa fa-user-plus fa-3x lp-icon" aria-hidden="true"></i>
+        <p>Sign Up,</p>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <i class="fa fa-search fa-3x lp-icon" aria-hidden="true"></i>
+        <p>Search for a company via skills</p>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <i class="fa fa-address-card fa-3x lp-icon" aria-hidden="true"></i>
+        <p>Add contacts based on your preferences</p>
+
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <i class="fa fa-handshake-o fa-3x lp-icon" aria-hidden="true"></i>
+        <p>Get hired</p>
+      </div>
     </div>
   </div>
 
 
-  <div class="section-creators">
-    <div class="row">
-      <div class="col-xs-offset-5 col-xs-6">
-        <h2>The Team</h2>
-      </div>
-      <div class="col-lg-6 text-center">
-        <%= image_tag("daniel levelev.png", class: "avatar_super") %>
-        <p>Daniel Levelev</p>
-      </div>
-      <div class="col-lg-6 text-center">
-        <%= image_tag("Alexander Pieczka.jpg", class: "avatar_super") %>
-        <p>Alexander Pieczka</p>
-      </div>
+  <div class="banner slogan layer">
+    <h2>Create your opportunity on landing a good job</h2>
+  </div>
 
+
+
+  <div class= "container text-center padded">
+    <a name="team"></a>
+
+
+    <h2 class= "secondtitle">The Team</h2>
+    <div class="row">
+      <p class="col-md-8 col-md-offset-2 seconddesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aperiam quis nostrum, illum, molestiae, officiis perspiciatis ex ad, voluptate quibusdam ipsum. Quibusdam, aperiam, ducimus. Possimus sequi voluptate debitis tempore, esse.</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag("daniel levelev.png", class: "avatar_super") %>
+      <p>Daniel Levelev</p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <%= image_tag("Alexander Pieczka.jpg", class: "avatar_super") %>
+      <p>Alexander Pieczka</p>
+    </div>
+  </div>
+
+
+
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#">About</a>
+
+      <a href="https://github.com/levelev/jobdetective"><i class="fa fa-github"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      2017 JobDetective  made this site with <i class="fa fa-heart"></i>
     </div>
   </div>
 </div>
-
-
 <!-- <div class="footer">
   <div class="footer-links">
     <a href="#">About</a>
