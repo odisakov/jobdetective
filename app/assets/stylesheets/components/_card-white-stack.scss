@@ -1,0 +1,116 @@
+.card-white-stack {
+  // height: 175px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  // background-size: cover !important;
+  // background-position: center;
+  // color: white;
+  // position: relative;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border-radius: 2px;
+  background: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+
+  // the entire card
+
+}
+.card-white-stack-logo {
+  // position: absolute;
+  // right: 10px;
+  // top: 10px;
+  // width: 80px;
+  // border-radius: 50%;
+  // A logo in the top right corner
+}
+.card-white-stack-category {
+  // position: absolute;
+  // top: 10px;
+  // left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  // Text in the Top left
+}
+.card-white-stack-description {
+  // position: absolute;
+  // bottom: 10px;
+  // left: 10px;
+  // Text inside the Card
+  // h3{
+  //   color: black;
+  // }
+}
+.card-white-stack-description h2 {
+  // font-size: 24px;
+  // color: black;
+}
+.card-white-stack-description p {
+  // font-size: 14px;
+  // opacity: 0.7;
+  // font-weight: lighter;
+  // color: black;
+}
+.card-white-stack-link {
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // right: 0;
+  // width: 100%;
+  // z-index: 2;
+  // background: rgb(112, 121, 127);
+  // opacity: 0;
+  // Makes the entire card a Link if you put it at the bottom
+}
+.card-white-stack-link:hover {
+  // opacity: 0.1;
+}
+
+
+
+.card-white-stack-cta-buton {
+  // position: absolute;
+  // right: 10px;
+  // bottom: 10px;
+
+  // A Call-to-Action-Button in the bottom right corner
+
+}
+
+
+.effect {
+
+
+
+    transition: all 0.1s;
+    border-right:1px solid #f0f0f0;
+    border-bottom:1px solid #f0f0f0;
+
+  }
+
+
+
+
+
+  .clearer {
+    clear:both;
+  }
+
+  .effect:hover {
+    transform: scale(1.1,1.1);
+
+box-shadow: 10px 10px 91px 0px rgba(198, 231, 255,1);
+    z-index:9999;
+
+
+    background-color:#fff;
+  }
+
+
+
+
+
+
+
+
+
