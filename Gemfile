@@ -12,6 +12,10 @@ gem 'omniauth-linkedin-oauth2'
 gem 'pg_search'
 gem 'nokogiri'
 gem 'clearbit'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
+
+
 
 
 gem 'autoprefixer-rails'
