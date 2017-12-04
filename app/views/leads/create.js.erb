@@ -1,5 +1,7 @@
 // Changing Button on Card after Lead added
-document.querySelector("#lead-button-<%=@person.id%>").innerText = "✓ Added";
-document.querySelector("#lead-button-<%=@person.id%>").classList.add("disabled");
+document.querySelector("#lead-button-<%=@person.id%>").innerText = "✓";
+// document.querySelector("#lead-button-<%=@person.id%>").classList.add("disabled");
+document.querySelector("#lead-button-<%=@person.id%>").classList.add("btn-success");
+document.querySelector("#lead-button-<%=@person.id%>").classList.remove("btn-warning");
 
 
