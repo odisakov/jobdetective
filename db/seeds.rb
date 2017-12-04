@@ -40,17 +40,80 @@ csv.each do |row|
   end
   unless doc == nil
     # doc.search('#stp-services > .stack-service-name-under').each do |element|
-    doc.search('#stp-services').each do |element|
-      tool_name = element.search('.stack-service-name-under').text.strip
-      tool_picture = element.search('img')
-      stack_tools_hash[:name] = tool_name
-      stack_tools_hash[:picture] = tool_picture.first.attributes["src"].try(:value)
+    # doc.search('#stp-services').each do |element|
+    #   tool_name = element.search('.stack-service-name-under').text.strip.gsub(/\n.*/,"")
+    #   tool_picture = element.search('img')
+    array_of_tools = []
+    doc.search('#stack-item-services-tile').each do |section|
+      # tool_name = element.search('.stack-service-name-under').text.strip.gsub(/\n.*/,"")
+      # tool_picture = element.search('img'
 
 
-      p stack_tools_hash
+      section.css('#stp-services').each do |element|
+        img = element.css('img').first.attributes["src"].value
+        p img
+        title = element.css('a.stack-service-name-under').first.text
+        p title
+        tool = {
+          name: title,
+          picture: img
+        }
+        array_of_tools << tool
+      end
+      # tool = {
+      #   name: element.attributes["alt"].value,
+      #   picture: element.attributes["src"].value
+      # }
 
-      # stack_tools << element.text.strip
+      # # stack_tools_hash[:name] = element.attributes["alt"].value # element['alt']# tool_name
+      # # p element.alt
+      # # stack_tools_hash[:picture] = element.attributes["src"].value  #element['currentSrc'] # tool_picture.first.attributes["src"].try(:value)
+      # # p element.currentSrc
+      # # stack_tools << stack_tools_hash
+      # # p stack_tools_hash
+      # # # p "printing stack tools"
+      # array_of_tools << tool
     end
+
+    # p "============================================"
+    # p "Tools for #{c.name} #{stack_tools}"
+    # p "============================================"
+
+
+
+    # example_for_tool = {:name=>"Salesforce Sales Cloud", :picture=>"https://img.stackshare.io/service/35/lGZFUPOW.png"}
+
+
+    # array_of_tools.uniq
+
+
+    array_of_tools.uniq.each do |tool|
+      current_tool = Tool.find_by_name(tool[:name])
+      if current_tool
+      # p "current_tool #{current_tool.name}"
+         ct = CompanyTool.create!(
+        company: c,
+        tool: current_tool,
+        )
+      else
+        new_tool = Tool.new(
+          name: tool[:name],
+          image_url: tool[:picture]
+
+          )
+        new_tool.save
+        ct = CompanyTool.create!(
+        company: c,
+        tool: new_tool,
+        )
+      end
+    end
+  end
+end
+
+
+
+
     # stack_tools.each do |tool|
     #   current_tool = Tool.find_by_name("tool")
     #   if current_tool
@@ -70,11 +133,6 @@ csv.each do |row|
     #     )
     #   end
     # end
-  end
-end
-
-
-
 
 
 
