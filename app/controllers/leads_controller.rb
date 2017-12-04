@@ -27,14 +27,33 @@ class LeadsController < ApplicationController
     end
   end
 
-  def update
-    @lead = Lead.find(params[:lead_id])
-    if @lead.save
+  # def update
+  #   @lead = Lead.find(params[:lead_id])
+  #   if @lead.save
+  #     respond_to do |format|
+  #       format.js
+  #   else
+  #       format.html { render action: "edit" }
+  #       format.js
+  #     end
+  #   end
+  # end
+
+
+    def update
+      @lead = Lead.find(params[:id])
       respond_to do |format|
-        format.js
+        if @lead.update(status: params[:status])
+          format.html { redirect_to @leads, notice: 'successfully updated.' }
+          format.js { head :ok, content_type: "text/html"}
+        else
+          format.html { render action: "edit" }
+          format.js { head :ok, content_type: "text/html"}
+        end
       end
+
     end
-  end
+
 
   def destroy
     # /leads/:id/destroy
