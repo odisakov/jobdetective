@@ -30,6 +30,7 @@ csv.each do |row|
 
   p "Fetching #{stack_url}"
   stack_tools = []
+  stack_tools_hash = {}
   begin
     doc = Nokogiri::HTML(open(stack_url), nil, 'utf-8')
   rescue
@@ -38,33 +39,37 @@ csv.each do |row|
     puts "#{c.name} deleted"
   end
   unless doc == nil
-    doc.search('#stp-services > .stack-service-name-under').each do |element|
-      stack_tools << element.text.strip
-      # p "Stack_tools for #{c.name} #{stack_tools}"
-    end
+    # doc.search('#stp-services > .stack-service-name-under').each do |element|
+    doc.search('#stp-services').each do |element|
+      tool_name = element.search('.stack-service-name-under').text.strip
+      tool_picture = element.search('img')
+      stack_tools_hash[:name] = tool_name
+      stack_tools_hash[:picture] = tool_picture.first.attributes["src"].try(:value)
 
-    # new_tools = []
-    # existing_tools = []
 
-    stack_tools.each do |tool|
-      current_tool = Tool.find_by_name("tool")
-      if current_tool
-         ct = CompanyTool.create!(
-        company: c,
-        tool: current_tool,
-        # image_url:
-        )
-      else
-        new_tool = Tool.create!(
-          name: tool.gsub(/\[\d*\]/, "")
-          )
-        ct = CompanyTool.create!(
-        company: c,
-        tool: new_tool,
-        # image_url:
-        )
-      end
+      p stack_tools_hash
+
+      # stack_tools << element.text.strip
     end
+    # stack_tools.each do |tool|
+    #   current_tool = Tool.find_by_name("tool")
+    #   if current_tool
+    #      ct = CompanyTool.create!(
+    #     company: c,
+    #     tool: current_tool,
+    #     # image_url:
+    #     )
+    #   else
+    #     new_tool = Tool.create!(
+    #       name: tool.gsub(/\[\d*\]/, "")
+    #       )
+    #     ct = CompanyTool.create!(
+    #     company: c,
+    #     tool: new_tool,
+    #     # image_url:
+    #     )
+    #   end
+    # end
   end
 end
 
