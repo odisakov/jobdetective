@@ -85,7 +85,7 @@ role = %w(management engineering sales)
     company: Company.order("RANDOM()").first,
     email: Faker::Internet.email,
     password: Faker::Crypto.md5,
-    linkedin_pic_url: "https://dizivizi.com/mbb/imgs/site/default_user.png",
+    linkedin_pic_url: "http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512407043/default_user_dizcx8.jpg",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     employment_role: role.sample
