@@ -1,0 +1,8 @@
+      <div class="board-item" data-lead-id="<%= lead.id %>">
+
+ <div class="board-item-content">
+          <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
+
+          <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{lead.person.first_name}%20#{lead.person.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+</div>
