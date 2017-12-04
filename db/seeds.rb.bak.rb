@@ -23,36 +23,172 @@ csv.each do |row|
   c.save
   p "Created Company #{c.name}"
 
+  # Scraping Techs for Company - STACKSHARE
+  stackshare = "https://stackshare.io/"
+  company_name = c.name.downcase.gsub(" se", "").gsub(" gmbh", "").gsub(" ag", "").gsub(" ug", "").gsub(" ","-")
+  stack_url = "#{stackshare}#{company_name}/#{company_name}"
 
-
-  # Scraping people from Angellist
-  p "Scraping People from AngelList forh ttps://angel.co/#{company}"
-
-  # angel_url = "https://angel.co/"
-  company = c.name.gsub(" ", "-").gsub(".", "-")
-  people = []
-  nokogiri_hash = {}
-  user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.854.0 Safari/535.2"
-
-
+  p "Fetching #{stack_url}"
+  stack_tools = []
+  stack_tools_hash = {}
   begin
-    # doc = Nokogiri::HTML(open("https://angel.co/#{company}", 'User-Agent' => user_agent,), nil, 'utf-8')
-    doc = Nokogiri::HTML(open("https://angel.co/le-wagon", 'User-Agent' => user_agent,), nil, 'utf-8')
+    doc = Nokogiri::HTML(open(stack_url), nil, 'utf-8')
   rescue
     puts "404 rescued"
     c.destroy!
     puts "#{c.name} deleted"
   end
   unless doc == nil
-    # doc.search('.profile-link').each do |element|
-    #   people << element.text
+    # doc.search('#stp-services > .stack-service-name-under').each do |element|
+    # doc.search('#stp-services').each do |element|
+    #   tool_name = element.search('.stack-service-name-under').text.strip.gsub(/\n.*/,"")
+    #   tool_picture = element.search('img')
+    array_of_tools = []
+    doc.search('#stack-item-services-tile').each do |section|
+      # tool_name = element.search('.stack-service-name-under').text.strip.gsub(/\n.*/,"")
+      # tool_picture = element.search('img'
+
+
+      section.css('#stp-services').each do |element|
+        img = element.css('img').first.attributes["src"].value
+        p img
+        title = element.css('a.stack-service-name-under').first.text
+        p title
+        tool = {
+          name: title,
+          picture: img
+        }
+        array_of_tools << tool
+      end
+      # tool = {
+      #   name: element.attributes["alt"].value,
+      #   picture: element.attributes["src"].value
+      # }
+
+      # # stack_tools_hash[:name] = element.attributes["alt"].value # element['alt']# tool_name
+      # # p element.alt
+      # # stack_tools_hash[:picture] = element.attributes["src"].value  #element['currentSrc'] # tool_picture.first.attributes["src"].try(:value)
+      # # p element.currentSrc
+      # # stack_tools << stack_tools_hash
+      # # p stack_tools_hash
+      # # # p "printing stack tools"
+      # array_of_tools << tool
+    end
+
+    # p "============================================"
+    # p "Tools for #{c.name} #{stack_tools}"
+    # p "============================================"
+
+
+
+    # example_for_tool = {:name=>"Salesforce Sales Cloud", :picture=>"https://img.stackshare.io/service/35/lGZFUPOW.png"}
+
+
+    # array_of_tools.uniq
+
+
+    array_of_tools.uniq.each do |tool|
+      current_tool = Tool.find_by_name(tool[:name])
+      if current_tool
+      # p "current_tool #{current_tool.name}"
+         ct = CompanyTool.create!(
+        company: c,
+        tool: current_tool,
+        )
+      else
+        new_tool = Tool.new(
+          name: tool[:name],
+          image_url: tool[:picture]
+
+          )
+        new_tool.save
+        ct = CompanyTool.create!(
+        company: c,
+        tool: new_tool,
+        )
+      end
+    end
+  end
+end
+
+
+
+
+    # stack_tools.each do |tool|
+    #   current_tool = Tool.find_by_name("tool")
+    #   if current_tool
+    #      ct = CompanyTool.create!(
+    #     company: c,
+    #     tool: current_tool,
+    #     # image_url:
+    #     )
+    #   else
+    #     new_tool = Tool.create!(
+    #       name: tool.gsub(/\[\d*\]/, "")
+    #       )
+    #     ct = CompanyTool.create!(
+    #     company: c,
+    #     tool: new_tool,
+    #     # image_url:
+    #     )
+    #   end
     # end
 
-    nokogiri_hash = doc.xpath("//parentNode/*").each_with_object({}) do |node, hash|
-      hash[node.name] = node.text
-    end
-    p hash
-  end
+
+
+# Create Employees - Faker
+role = %w(management engineering sales)
+
+50.times do
+  pic_uid = rand(1..10)
+  u = User.create!(
+    # name: Faker::Name.name,
+    company: Company.order("RANDOM()").first,
+    email: Faker::Internet.email,
+    password: Faker::Crypto.md5,
+    linkedin_pic_url: "http://lorempixel.com/100/100/people/#{pic_uid}",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    employment_role: role.sample
+    )
+end
+
+# #   # Scraping people from Angellist
+
+# #   # angel_url = "https://angel.co/"
+# #   company = c.name.gsub(" ", "-").gsub(".", "-")
+#   people = []
+# #   nokogiri_hash = {}
+#   user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.854.0 Safari/535.2"
+
+# #   p "Scraping People from AngelList forh ttps://angel.co/#{company}"
+
+
+# puts "-------------------------------------- "
+# puts "Testing lewagon"
+
+
+
+#   begin
+#     # doc = Nokogiri::HTML(open("https://angel.co/#{company}", 'User-Agent' => user_agent,), nil, 'utf-8')
+#     doc = Nokogiri::HTML(open("https://angel.co/le-wagon", 'User-Agent' => user_agent,), nil, 'utf-8')
+
+#     puts doc
+
+#   rescue
+#     puts "404 rescued"
+#     # c.destroy!
+#     puts "#{c.name} deleted"
+#   end
+#   unless doc == nil
+#     doc.search('.profile-link').each do |element|
+#       people << element.text
+#     end
+
+# p people
+# p "Numbers of employees"
+# p people.count
+
 
      # .name > .profile-link # Name & Link
      #  .role_title #Role
@@ -71,74 +207,15 @@ csv.each do |row|
   #   # employment_role: role.sample
   #   )
   # end
-end
-
-
-
-
-
-
-
-#   # Scraping Techs for Company - STACKSHARE
-#   stackshare = "https://stackshare.io/"
-#   company_name = c.name.downcase.gsub(" se", "").gsub(" gmbh", "").gsub(" ag", "").gsub(" ug", "").gsub(" ","-")
-#   stack_url = "#{stackshare}#{company_name}/#{company_name}"
-
-#   p "Fetching #{stack_url}"
-#   stack_tools = []
-#   begin
-#     doc = Nokogiri::HTML(open(stack_url), nil, 'utf-8')
-#   rescue
-#     puts "404 rescued"
-#     c.destroy!
-#     puts "#{c.name} deleted"
-#   end
-#   unless doc == nil
-#     doc.search('.stack-service-name-under').each do |element|
-#       stack_tools << element.text.strip
-#       # p "Stack_tools for #{c.name} #{stack_tools}"
-#     end
-
-#     # new_tools = []
-#     # existing_tools = []
-
-#     stack_tools.each do |tool|
-#       current_tool = Tool.find_by_name("tool")
-#       if current_tool
-#          ct = CompanyTool.create!(
-#         company: c,
-#         tool: current_tool
-#         )
-#       else
-#         new_tool = Tool.create!(
-#           name: tool
-#           )
-#         ct = CompanyTool.create!(
-#         company: c,
-#         tool: new_tool
-#         )
-#       end
-#     end
-#   end
 # end
 
 
-# # Create Employees - Faker
-# role = %w(management engineering sales)
 
-# 50.times do
-#   pic_uid = rand(1..10)
-#   u = User.create!(
-#     # name: Faker::Name.name,
-#     company: Company.order("RANDOM()").first,
-#     email: Faker::Internet.email,
-#     password: Faker::Crypto.md5,
-#     linkedin_pic_url: "http://lorempixel.com/100/100/people/#{pic_uid}",
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     employment_role: role.sample
-#     )
-# end
+
+
+
+
+
 
 
 

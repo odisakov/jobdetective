@@ -27,7 +27,7 @@
           <div class="card-white-category">Stack</div>
           <div class="card-white-description">
            <ul class="list-inline">
-            <% @company.tools.each do |tool| %>
+            <% @company.tools.distinct.each do |tool| %>
             <li>
               <img src="<%= tool.image_url %>" height="20px">
               <%= link_to tool.name, companies_path(:tool => tool.name) %>
