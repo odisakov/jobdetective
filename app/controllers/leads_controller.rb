@@ -28,6 +28,12 @@ class LeadsController < ApplicationController
   end
 
   def update
+    @lead = Lead.find(params[:lead_id])
+    if @lead.save
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   def destroy
