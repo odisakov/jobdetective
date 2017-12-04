@@ -1,5 +1,7 @@
 <div class="wrapper">
   <div class="container">
+
+
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
         <div class="card-white">
@@ -22,27 +24,31 @@
 
 
     <div class="row">
-      <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <div class="card-white-secondary">
-          <div class="card-white-category">Stack</div>
-          <div class="card-white-description">
-           <ul class="list-inline">
-            <% @company.tools.each do |tool| %>
-            <li>
-              <%= link_to tool.name, companies_path(:tool => tool.name) %>
 
+      <div class="col-xs-12">
+        <div class="card-white-stack">
+          <div class="card-white-stack-category">Stack</div>
+          <div class="card-white-stack-description">
+
+           <ul class="list-inline">
+            <% @company.tools.distinct.order("name asc").each do |tool| %>
+            <li>
+              <img src="<%= tool.image_url %>" height="20px">
+              <%= link_to tool.name, companies_path(:tool => tool.name) %>
             </li>
             <% end %>
           </ul>
         </div>
-        <!-- <a class="card-white-link" href="#" ></a> -->
+        <!-- <a class="card-white-stack-link" href="#" ></a> -->
       </div>
     </div>
   </div>
 
+
   <div class="row">
 
     <% @company.users.each do |user| %>
+
 
     <div class="col-xs-12 col-md-5 col-md-push-1  ">
       <div class="card-white">
@@ -73,6 +79,8 @@
     </div>
     <% end %>
   </div>
+
+
   <div class="row">
     <div class="col-xs-6 text-left">
       <%= link_to '« Back to Search', companies_path %>

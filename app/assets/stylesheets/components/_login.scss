@@ -1,0 +1,14 @@
+.login-flexbox {
+  // position: relative;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 70px);
+}
+
+
+.login-button {
+ max-width: 90%;
+ min-width: 300px;
+ // position: relative;
+}
