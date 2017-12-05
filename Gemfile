@@ -15,9 +15,6 @@ gem 'clearbit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 
-
-
-
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
