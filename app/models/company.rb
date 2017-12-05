@@ -3,8 +3,13 @@ class Company < ApplicationRecord
   has_many :tools, through: :company_tools
   has_many :users, dependent: :destroy
 
-
+  include AlgoliaSearch
    algoliasearch do
-    attribute :tools
-  end
+    # attribute :name
+    attribute :com_tools do
+      self.select {|c| c.tool.count > 0} do |variable|
+
+      end
+    end
+
 end

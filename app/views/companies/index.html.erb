@@ -10,7 +10,7 @@
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
-      <%= text_field_tag :tool, "", class: "searchfield" %>
+      <%= text_field_tag :tool, "", class: "searchfield", id: "search-input" %>
       <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
 
       <% end %>
@@ -18,35 +18,76 @@
   </div>
 </div>
 
+
+<div class="companies-list"></div>
+
+<div style = "display: none;">
 <div class="wrapper">
   <div class="container margin-top results">
     <div class="row">
-      <% @companies.each do |displaycard| %>
+      <%# @companies.each do |displaycard| %>
 
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= link_to company_path(displaycard) do %>
+        <%#= link_to company_path(displaycard) do %>
         <div class="card-white effect">
           <div class="card-white-description">
-            <h2><%= displaycard.name %></h2>
-            <p><%= displaycard.short_description %></p>
+            <h2><%#= displaycard.name %></h2>
+            <p><%#= displaycard.short_description %></p>
           </div>
-          <%= image_tag displaycard.logo_url, class: "card-white-logo" %>
+          <%#= image_tag displaycard.logo_url, class: "card-white-logo" %>
 
-          <%= link_to'', company_path(displaycard), class: "card-white-link" %>
+          <%#= link_to'', company_path(displaycard), class: "card-white-link" %>
 
 
-          <% end %>
+          <%# end %>
           <div class="clearer"></div>
         </div>
       </div>
-      <% end %>
+      <%# end %>
     </div>
   </div>
+</div>
 </div>
 
 
 
+<script>
 
+ document.addEventListener("keyup", (event) => {
+
+    var searchText = document.getElementById("search-input").value;
+    console.log(searchText)
+
+    // aloglia search
+    var client = algoliasearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_SEARCH'] %>');
+
+    var index = client.initIndex('Company');
+    index.search(searchText, { hitsPerPage: 6, page: 0 })
+      .then(function searchDone(content) {
+        // console.log(options)
+        console.log(content.hits)
+
+        var htmlData = ""
+
+        content.hits.forEach( function(element) {
+          console.log(element);
+
+          e = `<h1>${element.name}</h1><br>`;
+          htmlData += e;
+          console.log(element.objectID)
+        })
+
+        $('.companies-list').html(htmlData);
+
+      })
+
+      .catch(function searchFailure(err) {
+      console.error(err);
+      });
+  });
+
+
+</script>
 
 
 
