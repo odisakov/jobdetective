@@ -10,7 +10,12 @@
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
+      <% if params[:tool] %>
+      <%= text_field_tag :tool, "", class: "searchfield" , placeholder: params[:tool] %>
+
+      <% else %>
       <%= text_field_tag :tool, "", class: "searchfield" , placeholder: "Search for ex: Ruby"%>
+      <% end %>
       <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
 
       <% end %>
