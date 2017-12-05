@@ -5,13 +5,58 @@
         <h2><%= "#{lead.person.first_name}" %></h2>
         <h2><%= "#{lead.person.last_name}" %></h2>
         <div class="role">
-          <p><%= lead.person.employment_role %> @ <%= link_to lead.person.company.name, company_path(lead.person.company) %></p>
+          <p><%= lead.person.employment_role %> @ <%= link_to lead.person.company.name, company_path(lead.person.company), class: "company-link" %></p>
         </div>
         <div class="mail-lead">
+
         <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{lead.person.first_name}%20#{lead.person.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
           <% if lead.person.email %>
           <a href=<%="mailto:#{lead.person.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
           <% end %>
         </div>
+        <div class="deleter">
+          <% if lead.status == "declined" %>
+            <%= link_to '✗', lead_path(lead), class: "btn btn-danger btn-sm deniedbtn ", method: :delete, remote: :true, id: "close-button-#{lead.id}" %>
+
+          <% end %>
+        </div>
       </div>
     </div>
+
+
+<!--
+
+'✗ Delete', lead_path(lead), class: "btn btn-danger btn-sm card-white-cta-buton", method: :delete, remote: :true, id: "close-button-#{lead.id}" -->
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="form-control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
