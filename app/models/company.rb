@@ -7,7 +7,7 @@ class Company < ApplicationRecord
    algoliasearch do
     # attribute :name
     attribute :com_tools do
-      self.select {|c| c.tool.count > 0} do |variable|
+      self.select {|c| c.tool.count > 0} do
 
       end
     end
