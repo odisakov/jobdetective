@@ -1,9 +1,13 @@
 /* Board */
-
+.board-wrapper{
+  background: #fbfbfb;
+  height: calc(100vh - 75px);
+  position: relative;
+  padding-top: 50px;
+  padding-left: 50px;
+}
 .board {
   position: relative;
-  margin-left: 1%;
-  margin-top: 3%;
 
 }
 .board-column {
@@ -32,7 +36,7 @@
   text-align: center;
   background: #333;
   color: #fff;
-  border-radius: 3px 3px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 @media (max-width: 600px) {
   .board-column-header {
@@ -57,6 +61,8 @@
   position: relative;
   border: 10px solid transparent;
   min-height: 95px;
+  background: #80808014;
+  border-radius: 0 0 8px 8px;
 }
 .board-item {
   position: absolute;
@@ -65,23 +71,31 @@
 }
 .board-item-content {
   position: relative;
-  padding: 20px;
+  padding: 18px;
   background: #fff;
   border-radius: 4px;
   font-size: 17px;
   cursor: pointer;
   -webkit-box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
   box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
+  z-index: 0;
   h2{
     color: gray;
     font-size: 15px;
     margin: 0;
+    padding-left: 51px;
+  }
+  p{
+    padding-top: 7px;
   }
   .role{
     color: gray;
     font-size: 12px;
   }
   .mail-lead{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     font-size: 16px;
     a{
       margin-right: 9px;
@@ -89,12 +103,12 @@
   }
   .lead-avatar{
     position: absolute;
-  right: 24px;
-  bottom: 10px;
-  width: 40px;
+  left: 10px;
+  top: 10px;
+  width: 42px;
   border-radius: 50%;
   border: 3px solid white;
-  box-shadow: 0 2px 26px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
     z-index: 10;
   }
 }
@@ -116,4 +130,15 @@
   .board-item-content span {
     display: none;
   }
+}
+
+
+
+.deniedbtn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: 100;
+  width: 50px;
+  z-index: 100;
 }
