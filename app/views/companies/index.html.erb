@@ -6,16 +6,17 @@
   <%# f.submit 'Search', class: 'btn btn-primary' %>
 
   <%# end %>
-  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
-      <%= text_field_tag :tool, "", class: "searchfield" %>
+      <%= text_field_tag :tool, "", class: "searchfield" , placeholder: "Search for ex: Ruby"%>
       <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
 
       <% end %>
     </div>
   </div>
+  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
 
 <div class="wrapper">
