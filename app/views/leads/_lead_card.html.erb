@@ -1,8 +1,16 @@
       <div class="board-item" data-lead-id="<%= lead.id %>">
 
- <div class="board-item-content">
-          <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
-
-          <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{lead.person.first_name}%20#{lead.person.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+       <div class="board-item-content">
+        <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
+        <div class="role">
+          <p><%= lead.person.employment_role %> @ <%= link_to lead.person.company.name, company_path(lead.person.company) %></p>
         </div>
-</div>
+        <div class="mail-lead">
+        <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{lead.person.first_name}%20#{lead.person.last_name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+          <% if lead.person.email %>
+          <a href=<%="mailto:#{lead.person.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <% end %>
+        </div>
+        <%= image_tag lead.person.linkedin_pic_url, class: "lead-avatar" %>
+      </div>
+    </div>
