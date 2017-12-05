@@ -1,7 +1,9 @@
       <div class="board-item" data-lead-id="<%= lead.id %>">
 
        <div class="board-item-content">
-        <h2><%= "#{lead.person.first_name} #{lead.person.last_name}" %></h2>
+        <%= image_tag lead.person.linkedin_pic_url, class: "lead-avatar" %>
+        <h2><%= "#{lead.person.first_name}" %></h2>
+        <h2><%= "#{lead.person.last_name}" %></h2>
         <div class="role">
           <p><%= lead.person.employment_role %> @ <%= link_to lead.person.company.name, company_path(lead.person.company) %></p>
         </div>
@@ -11,6 +13,5 @@
           <a href=<%="mailto:#{lead.person.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
           <% end %>
         </div>
-        <%= image_tag lead.person.linkedin_pic_url, class: "lead-avatar" %>
       </div>
     </div>
