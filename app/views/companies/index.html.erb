@@ -23,13 +23,13 @@
   <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
 
-  <div class="wrapper">
-<div class="companies-list">
     <div class="search-reply">
+<div class="wrapper">
       <p>They are using <strong><%= params[:tool] %></strong> every day</p>
     </div>
     <div class="container margin-top results">
       <div class="row">
+  <div class="companies-list">
         <% @companies.each do |displaycard| %>
 
         <div class="col-xs-12 col-sm-6 col-md-6">
@@ -75,32 +75,33 @@
         var htmlData = ""
 
         content.hits.forEach( function(element) {
-          console.log(element);
+        //   console.log(element);
 
 
 
           e = `
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                      <div class="card-white effect">
-                        <div class="col-xs-4 text-center">
-                          <img src="${element.logo_url}" class="card-white-logo-main">
-                        </div>
-                        <div class="card-white-description-main col-xs-8">
-                          <h2>${element.name}</h2>
-                          <p>${element.short_description}</p>
-                        </div>
-                    </div>
-                        <div class="clearer">
-                        </div>
-                      </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="card-white effect">
+          <div class="col-xs-4 text-center">
+          <img src="${element.logo_url}" class="card-white-logo-main">
+          </div>
+          <div class="card-white-description-main col-xs-8">
+          <h2>${element.name}</h2>
+          <p>${element.short_description}</p>
+          </div>
+          </div>
+
+          <div class="clearer">
+          </div>
+          </div>
 
 
-              `;
+          `;
 
           // e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;
 
           htmlData += e;
-          console.log(element.objectID)
+          // console.log(element.objectID)
         })
 
         $('.companies-list').html(htmlData);
