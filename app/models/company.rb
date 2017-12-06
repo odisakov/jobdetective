@@ -6,7 +6,7 @@ class Company < ApplicationRecord
   include AlgoliaSearch
    algoliasearch do
 
-    attribute :name, :short_description, :logo_url
+    attribute :id, :name, :short_description, :logo_url
 
     add_attribute :tool_name
 

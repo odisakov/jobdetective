@@ -23,43 +23,42 @@
   <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
 
-<div class="companies-list">
-
+    <div class="search-reply">
 <div class="wrapper">
-  <div class="search-reply">
-    <p>They are using <strong><%= params[:tool] %></strong> every day</p>
-  </div>
-  <div class="container margin-top results">
-    <div class="row">
-      <% @companies.each do |displaycard| %>
+  <div id="every-day">
+  <% if params[:tool] %>
+      <p>They are using <strong><%= params[:tool] %></strong> every day</p></div>
 
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <%= link_to company_path(displaycard) do %>
-        <div class="card-white effect">
-          <div class="col-xs-4 text-center">
-          <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
+    <% end %>
+    </div>
+    <div class="container margin-top results">
+      <div class="row">
+  <div class="companies-list">
+        <% @companies.each do |displaycard| %>
+
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <%= link_to company_path(displaycard) do %>
+          <div class="card-white effect">
+            <div class="col-xs-4 text-center">
+              <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
+            </div>
+            <div class="card-white-description-main col-xs-8">
+              <h2><%= displaycard.name %></h2>
+              <p><%= displaycard.short_description %></p>
+            </div>
+
+            <%= link_to '', company_path(displaycard), class: "card-white-link" %>
+
+
+            <% end %>
+            <div class="clearer">
+            </div>
           </div>
-          <div class="card-white-description-main col-xs-8">
-            <h2><%= displaycard.name %></h2>
-            <p><%= displaycard.short_description %></p>
-          </div>
-
-          <%= link_to '', company_path(displaycard), class: "card-white-link" %>
-
-
-          <% end %>
-          <div class="clearer"></div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-</div>
-
-
-
-
-
 </div>
 
 <script>
@@ -73,27 +72,53 @@
 
     var index = client.initIndex('Company');
     index.search(searchText, { hitsPerPage: 10, page: 0 })
-      .then(function searchDone(content) {
+    .then(function searchDone(content) {
         // console.log(options)
         console.log(content.hits)
 
         var htmlData = ""
 
         content.hits.forEach( function(element) {
-          console.log(element);
+        //   console.log(element);
 
-          e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;
+
+
+          e = `
+          <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="card-white effect">
+          <div class="col-xs-4 text-center">
+          <img src="${element.logo_url}" class="card-white-logo-main">
+          </div>
+          <div class="card-white-description-main col-xs-8">
+          <h2>${element.name}</h2>
+          <p>${element.short_description}</p>
+          </div>
+          </div>
+
+          <a href="/companies/${element.id}" class="card-white-link"></a>
+
+          <div class="clearer">
+          </div>
+          </div>
+
+
+          `;
+
+          // e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;
+
           htmlData += e;
-          console.log(element.objectID)
+          // console.log(element.objectID)
         })
 
         $('.companies-list').html(htmlData);
+        $('#every-day').html(`<p>They are using <strong>${searchText}</strong> every day</p>`);
+
 
       })
 
-      .catch(function searchFailure(err) {
+    .catch(function searchFailure(err) {
       console.error(err);
-      });
+    });
   });
 
 
