@@ -9,9 +9,13 @@
   margin-top: 15px;
   border-radius: 2px;
   background: white;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 
   // the entire card
+  .col-xs-4{
+    height: 100%;
+    border-right: 1px solid rgba(0,0,0,0.09)
+  }
 
 }
 
@@ -30,10 +34,19 @@
   // the entire card
 
 }
+.card-white-logo-main {
+  margin-top: 17px;
+  width: 123px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.2);
+    z-index: 10;
+  // A logo in the top right corner
+}
 .card-white-logo {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  top: 15px;
+  right: 23px;
   width: 80px;
   border-radius: 50%;
   border: 3px solid white;
@@ -41,6 +54,7 @@
     z-index: 10;
   // A logo in the top right corner
 }
+
 .card-white-category {
   position: absolute;
   top: 10px;
@@ -65,7 +79,7 @@
   position: absolute;
   left: 10px;
   top: 10px;
-  width: 80px;
+  width: 73px;
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 2px 7px 0 rgba(0,0,0,0.2);
@@ -73,6 +87,14 @@
   // A logo in the top right corner
 }
 
+.card-white-description-main {
+  bottom: 10px;
+  left: 10px;
+  // Text inside the Card
+  h3{
+    color: black;
+  }
+}
 .card-white-description {
   position: absolute;
   bottom: 10px;
@@ -82,15 +104,25 @@
     color: black;
   }
 }
-.card-white-description h2 {
-  font-size: 24px;
-  color: black;
+.card-white-description-main h2 {
+  font-size: 30px;
+  color: rgba(0,0,0,0.61);
 }
-.card-white-description p {
-  font-size: 14px;
+.card-white-description h2 {
+  font-size: 30px;
+  color: rgba(0,0,0,0.61);
+}
+.card-white-description-main p {
+  font-size: 16px;
   opacity: 0.7;
   font-weight: lighter;
-  color: black;
+  color: rgba(0,0,0,0.6);
+}
+.card-white-description p {
+  font-size: 16px;
+  opacity: 0.7;
+  font-weight: lighter;
+  color: rgba(0,0,0,0.6);
 }
 .card-white-link {
   position: absolute;
@@ -99,7 +131,7 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: rgb(112, 121, 127);
+  background: rgba(112, 121, 127, 0.32);
   opacity: 0;
   // Makes the entire card a Link if you put it at the bottom
 }
@@ -141,7 +173,7 @@
   .effect:hover {
     transform: scale(1.1,1.1);
 
-box-shadow: 10px 10px 91px 0px rgba(198, 231, 255,1);
+    box-shadow: 6px 6px 50px 0px rgba(198, 231, 255,1);
     z-index:9999;
 
 

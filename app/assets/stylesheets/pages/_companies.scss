@@ -21,6 +21,17 @@
   font-size: 39px;
 }
 
+.search-reply{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 23px;
+  font-weight: 550;
+  color: rgba(0,0,0, 0.5);
+
+  strong{
+    color: black;
+  }
+}
 
 .searchbar{
   margin-top: 10px;
@@ -45,7 +56,7 @@
 .searchcard{
    min-height: 75px;
    min-width: 100px;
-   width: 276px;
+   width: 423px;
   // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   // color: white;
   margin-bottom: 5px;
@@ -58,3 +69,8 @@
 .results{
   margin-bottom: 40px;
 }
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
