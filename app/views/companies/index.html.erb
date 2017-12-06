@@ -25,7 +25,11 @@
 
     <div class="search-reply">
 <div class="wrapper">
-      <p>They are using <strong><%= params[:tool] %></strong> every day</p>
+  <div id="every-day">
+  <% if params[:tool] %>
+      <p>They are using <strong><%= params[:tool] %></strong> every day</p></div>
+
+    <% end %>
     </div>
     <div class="container margin-top results">
       <div class="row">
@@ -105,6 +109,8 @@
         })
 
         $('.companies-list').html(htmlData);
+        $('#every-day').html(`<p>They are using <strong>${searchText}</strong> every day</p>`);
+
 
       })
 
