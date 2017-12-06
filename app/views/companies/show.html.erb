@@ -33,8 +33,12 @@
            <ul class="list-inline">
             <% @company.tools.distinct.order("name asc").each do |tool| %>
             <li>
-              <img src="<%= tool.image_url %>" height="20px">
-              <%= link_to tool.name, companies_path(:tool => tool.name) %>
+              <%=link_to companies_path(:tool => tool.name) do %>
+              <%= image_tag(tool.image_url, :class => "avatar-medium", :alt => tool.name) %>
+              <% end %>
+
+              <!-- <img src="<%= tool.image_url %>" height="60px", style="border-radius: 50%", alt="<%=tool.name %>"> -->
+              <%#= link_to tool.name, companies_path(:tool => tool.name) %>
             </li>
             <% end %>
           </ul>
@@ -83,10 +87,10 @@
 
   <div class="row">
     <div class="col-xs-6 text-left">
-      <%= link_to '« Back to Search', companies_path %>
+      <%= link_to companies_path, class: "btn btn-primary btn-return" do %><span class="fa fa-arrow-left fa-1x"></span><% end %>
     </div>
     <div class="col-xs-6 text-right">
-      <%= link_to 'Go to Leads »', leads_path %>
+      <%= link_to leads_path, class: "btn btn-primary btn-return" do %><span class="fa fa-arrow-right fa-1x"></span><% end %>
     </div>
   </div>
 </div>

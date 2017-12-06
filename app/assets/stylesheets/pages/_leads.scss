@@ -1,8 +1,14 @@
 /* Board */
-
+.board-wrapper{
+  background: #fbfbfb;
+  height: calc(100vh - 75px);
+  position: relative;
+  padding-top: 50px;
+  padding-left: 50px;
+}
 .board {
   position: relative;
-  margin-left: 1%;
+
 }
 .board-column {
   position: absolute;
@@ -30,7 +36,7 @@
   text-align: center;
   background: #333;
   color: #fff;
-  border-radius: 3px 3px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 @media (max-width: 600px) {
   .board-column-header {
@@ -38,29 +44,75 @@
   }
 }
 .board-column.todo .board-column-header {
-  background: #4A9FF9;
+  background: #257fdc;
 }
 .board-column.working .board-column-header {
-  background: #f9944a;
+  background: #ee6600e8;
 }
 .board-column.done .board-column-header {
   background: #2ac06d;
 }
 
 .board-column.declined .board-column-header {
-  background: red;
+  background: #f91212cc;
 }
 
 .board-column-content {
   position: relative;
   border: 10px solid transparent;
   min-height: 95px;
+  background: #80808014;
+  border-radius: 0 0 8px 8px;
 }
 .board-item {
   position: absolute;
   width: 100%;
   margin: 5px 0;
 }
+.board-item-content {
+  position: relative;
+  padding: 18px;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 17px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
+  z-index: 0;
+  h2{
+    color: gray;
+    font-size: 15px;
+    margin: 0;
+    padding-left: 51px;
+  }
+  p{
+    padding-top: 7px;
+  }
+  .role{
+    color: gray;
+    font-size: 12px;
+  }
+  .mail-lead{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 16px;
+    a{
+      margin-right: 9px;
+    }
+  }
+  .lead-avatar{
+    position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 42px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+}
+
 .board-item.muuri-item-releasing {
   z-index: 9998;
 }
@@ -71,16 +123,6 @@
 .board-item.muuri-item-hidden {
   z-index: 0;
 }
-.board-item-content {
-  position: relative;
-  padding: 20px;
-  background: #fff;
-  border-radius: 4px;
-  font-size: 17px;
-  cursor: pointer;
-  -webkit-box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
-  box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
-}
 @media (max-width: 600px) {
   .board-item-content {
     text-align: center;
@@ -88,4 +130,15 @@
   .board-item-content span {
     display: none;
   }
+}
+
+
+
+.deniedbtn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: 100;
+  width: 50px;
+  z-index: 100;
 }

@@ -11,9 +11,9 @@
   margin-bottom: 0px;
   position: relative;
 }
-
-
-
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255,255,255,0.8);
+}
 
 .magnifying-glass{
   margin-right: 6px;

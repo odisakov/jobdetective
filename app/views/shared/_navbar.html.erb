@@ -11,9 +11,13 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
-    <%= link_to "Search", companies_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to(companies_path, :class => 'navbar-wagon-item navbar-wagon-link') do %>
+    <i class="fa fa-search"> </i>  Search
+    <% end %>
 
-    <%= link_to "Leads", leads_path, class: "navbar-wagon-item navbar-wagon-link" %>
+     <%= link_to(leads_path, :class => 'navbar-wagon-item navbar-wagon-link') do %>
+    <i class="fa fa-users"> </i>  Leads
+    <% end %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
