@@ -5,7 +5,7 @@ require 'nokogiri'
 
 # Create Companies from Crunchbase CSV
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'crunch-berlin.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'crunch.csv'))
 
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|

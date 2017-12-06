@@ -14,6 +14,7 @@ gem 'nokogiri'
 gem 'clearbit'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'algoliasearch-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -24,6 +25,8 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+
 
 group :development, :test do
   gem 'pry-byebug'
