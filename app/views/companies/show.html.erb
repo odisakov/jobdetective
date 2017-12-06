@@ -1,23 +1,34 @@
 <div class="wrapper">
   <div class="container">
-
-
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <div class="card-white">
-          <div class="card-white-category"><%= @company.city %>, <%=@company.country  %></div>
-          <div class="card-white-description">
-            <h2><%= @company.name %></h2>
-            <p>
-              <%= link_to @company.homepage_url do %>
-              <i class="fa fa-external-link" aria-hidden="true"></i>
-              <%= @company.homepage_domain %>
-              <% end %>
-            </p>
-            <p><%= @company.short_description %></p>
+        <div class="card-white-main">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-2">
+                <div class="logo-wrapper">
+
+                <%= image_tag @company.logo_url, class: "card-white-logo" %>
+                <!-- <a class="card-white-link" href="#" ></a> -->
+                </div>
+              </div>
+              <div class="col-xs-8 company-border">
+                <div class="company-details">
+                  <h2><%= @company.name %></h2>
+                  <div class="card-white-category">
+                    <%= @company.city %>, <%=@company.country  %>
+                  </div>
+                  <p>
+                    <%= link_to @company.homepage_url do %>
+                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                    <%= @company.homepage_domain %>
+                    <% end %>
+                  </p>
+                  <p><%= @company.short_description %></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <%= image_tag @company.logo_url, class: "card-white-logo" %>
-          <!-- <a class="card-white-link" href="#" ></a> -->
         </div>
       </div>
     </div>
@@ -68,15 +79,15 @@
           </li>
           <% end %>
         </ul>
-        <div class="card-white-description">
+        <div class="card-white-description-leads">
           <h2><%= "#{user.first_name} #{user.last_name}"%></h2>
           <p><%= "#{user.employment_role}" %></p>
         </div>
-          <% if Lead.where(user_id: current_user, person:user).first %>
-          <%= link_to user_leads_path(user), method: :post, remote: true, class: "btn btn-success disabled btn-sm  card-white-cta-buton", id: "lead-button-disabled-#{user.id}" do %><span class="fa fa-check fa-1x"></span><% end %>
-          <% else %>
-          <%= link_to 'Add', user_leads_path(user), method: :post, remote: true, class: "btn btn-warning btn-sm card-white-cta-buton", id: "lead-button-#{user.id}" %>
-          <% end %>
+        <% if Lead.where(user_id: current_user, person:user).first %>
+        <%= link_to user_leads_path(user), method: :post, remote: true, class: "btn btn-success disabled btn-sm  card-white-cta-buton", id: "lead-button-disabled-#{user.id}" do %><span class="fa fa-check fa-1x"></span><% end %>
+        <% else %>
+        <%= link_to 'Add', user_leads_path(user), method: :post, remote: true, class: "btn btn-warning btn-sm card-white-cta-buton", id: "lead-button-#{user.id}" %>
+        <% end %>
         <%= image_tag user.linkedin_pic_url, class: "card-white-lead-logo" %>
         <!-- <a class="card-white-link" href="#" ></a> -->
       </div>
