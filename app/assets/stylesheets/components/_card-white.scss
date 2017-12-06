@@ -1,9 +1,9 @@
 .card-white {
   height: 175px;
-  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+
   background-size: cover !important;
   background-position: center;
-  // color: white;
+
   position: relative;
   margin-bottom: 5px;
   margin-top: 15px;
@@ -11,12 +11,42 @@
   background: white;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 
-  // the entire card
-  .col-xs-4{
-    height: 100%;
-    border-right: 1px solid rgba(0,0,0,0.09)
+  .logo-wrapper {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 20px;
   }
+}
 
+
+.card-white-main {
+
+  background-size: cover !important;
+  background-position: center;
+
+  position: relative;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border-radius: 2px;
+  background: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+
+  .logo-wrapper {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+.company-border{
+  border-left: 1px solid rgba(0,0,0,0.2)
+}
+
+.company-details {
+  h2 {
+
+  }
 }
 
 .card-white-secondary {
@@ -34,6 +64,8 @@
   // the entire card
 
 }
+
+
 .card-white-logo-main {
   margin-top: 17px;
   width: 123px;
@@ -43,20 +75,8 @@
     z-index: 10;
   // A logo in the top right corner
 }
-.card-white-logo {
-  position: absolute;
-  top: 15px;
-  right: 23px;
-  width: 80px;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.2);
-    z-index: 10;
-  // A logo in the top right corner
-}
 
 .card-white-category {
-  position: absolute;
   top: 10px;
   left: 10px;
   font-size: 15px;
@@ -96,6 +116,15 @@
   }
 }
 .card-white-description {
+  bottom: 10px;
+  left: 10px;
+  // Text inside the Card
+  h3{
+    color: black;
+  }
+}
+
+.card-white-description-leads {
   position: absolute;
   bottom: 10px;
   left: 10px;
