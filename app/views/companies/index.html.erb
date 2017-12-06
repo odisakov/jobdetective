@@ -10,12 +10,7 @@
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
-
       <%= text_field_tag :tool, "", class: "searchfield", id: "search-input" , placeholder: "Search for a skill you're good at" %>
-
-
-      <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
-
       <% end %>
     </div>
   </div>
@@ -23,49 +18,49 @@
   <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
 
-    <div class="search-reply">
-<div class="wrapper">
-  <div id="every-day">
-  <% if params[:tool] %>
+<div class="search-reply">
+  <div class="wrapper">
+    <div id="every-day">
+      <% if params[:tool] %>
       <p>They are using <strong><%= params[:tool] %></strong> every day</p></div>
 
-    <% end %>
+      <% end %>
     </div>
     <div class="container margin-top results">
       <div class="row">
-  <div class="companies-list">
-        <% @companies.each do |displaycard| %>
+        <div class="companies-list">
+          <% @companies.each do |displaycard| %>
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <%= link_to company_path(displaycard) do %>
-          <div class="card-white effect">
-            <div class="col-xs-4 text-center">
-              <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
-            </div>
-            <div class="card-white-description-main col-xs-8">
-              <h2><%= displaycard.name %></h2>
-              <p><%= displaycard.short_description %></p>
-            </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <%= link_to company_path(displaycard) do %>
+            <div class="card-white effect">
+              <div class="col-xs-4 text-center">
+                <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
+              </div>
+              <div class="card-white-description-main col-xs-8">
+                <h2><%= displaycard.name %></h2>
+                <p><%= displaycard.short_description %></p>
+              </div>
 
-            <%= link_to '', company_path(displaycard), class: "card-white-link" %>
+              <%= link_to '', company_path(displaycard), class: "card-white-link" %>
 
 
-            <% end %>
-            <div class="clearer">
+              <% end %>
+              <div class="clearer">
+              </div>
             </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  document.addEventListener("keyup", (event) => {
+  <script>
+    document.addEventListener("keyup", (event) => {
 
-    var searchText = document.getElementById("search-input").value;
-    console.log(searchText)
+      var searchText = document.getElementById("search-input").value;
+      console.log(searchText)
 
     // aloglia search
     var client = algoliasearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_SEARCH'] %>');
@@ -83,26 +78,26 @@
 
 
 
-          e = `
-          <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="card-white effect">
-          <div class="col-xs-4 text-center">
-          <img src="${element.logo_url}" class="card-white-logo-main">
-          </div>
-          <div class="card-white-description-main col-xs-8">
-          <h2>${element.name}</h2>
-          <p>${element.short_description}</p>
-          </div>
-          </div>
+        e = `
+        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="card-white effect">
+        <div class="col-xs-4 text-center">
+        <img src="${element.logo_url}" class="card-white-logo-main">
+        </div>
+        <div class="card-white-description-main col-xs-8">
+        <h2>${element.name}</h2>
+        <p>${element.short_description}</p>
+        </div>
+        </div>
 
-          <a href="/companies/${element.id}" class="card-white-link"></a>
+        <a href="/companies/${element.id}" class="card-white-link"></a>
 
-          <div class="clearer">
-          </div>
-          </div>
+        <div class="clearer">
+        </div>
+        </div>
 
 
-          `;
+        `;
 
           // e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;
 
