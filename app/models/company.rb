@@ -5,11 +5,21 @@ class Company < ApplicationRecord
 
   include AlgoliaSearch
    algoliasearch do
-    # attribute :name
-    attribute :com_tools do
-      self.select {|c| c.tool.count > 0} do
 
-      end
+    attribute :name, :short_description, :logo_url
+
+    add_attribute :tool_name
+
+    searchableAttributes ['tool_name']
+  end
+
+  def tool_name
+    tools = []
+    self.tools.each do |t|
+      puts t.name
+      tools << t.name
     end
+    tools
+  end
 
 end
