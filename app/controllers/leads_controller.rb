@@ -10,7 +10,7 @@ class LeadsController < ApplicationController
     @person = User.find(params[:user_id])
     # TODO CHECK IF LEAD ALREADY EXIST
     @company = @person.company
-    @lead = Lead.new(user: current_user, person: @person)
+    @lead = Lead.new(user: current_user, person: @person, status: "pending")
     if @lead.save
       respond_to do |format|
         format.html { redirect_to company_path(@company) }

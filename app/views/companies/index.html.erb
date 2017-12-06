@@ -6,17 +6,23 @@
   <%# f.submit 'Search', class: 'btn btn-primary' %>
 
   <%# end %>
-  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
+
   <div class="searchcard">
     <div class="searchbar">
       <%= form_tag(companies_path, method: :get) do %>
-      <%= text_field_tag :tool, "", class: "searchfield" %>
+
+      <%= text_field_tag :tool, "", class: "searchfield", id: "search-input" , placeholder: "Search by technology..." %>
+
       <%= submit_tag 'Search', class: "btn btn-primary searchbtn hidden" %>
 
       <% end %>
     </div>
   </div>
+
+  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
+
+<div class="companies-list">
 
 <div class="wrapper">
   <div class="container margin-top results">
@@ -43,6 +49,52 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+</div>
+
+<script>
+  document.addEventListener("keyup", (event) => {
+
+    var searchText = document.getElementById("search-input").value;
+    console.log(searchText)
+
+    // aloglia search
+    var client = algoliasearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_SEARCH'] %>');
+
+    var index = client.initIndex('Company');
+    index.search(searchText, { hitsPerPage: 10, page: 0 })
+      .then(function searchDone(content) {
+        // console.log(options)
+        console.log(content.hits)
+
+        var htmlData = ""
+
+        content.hits.forEach( function(element) {
+          console.log(element);
+
+          e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;
+          htmlData += e;
+          console.log(element.objectID)
+        })
+
+        $('.companies-list').html(htmlData);
+
+      })
+
+      .catch(function searchFailure(err) {
+      console.error(err);
+      });
+  });
+
+
+
+
+
+</script>
 
 
 

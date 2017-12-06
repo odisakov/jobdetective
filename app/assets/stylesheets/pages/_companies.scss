@@ -1,5 +1,5 @@
 .searchbanner {
-    background-image: linear-gradient(to right top, rgba(30, 61, 99, 0.78) 50%, rgba(30, 61, 99, 0.78) 50%), url("office.jpeg");
+    background-image: linear-gradient(to right top, rgba(30, 61, 99, 0.78) 50%, rgba(30, 61, 99, 0.78) 50%), url("http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512406713/office_hbxqmv.jpg");
   background-size: cover !important;
   background-position: top center;
   height: 300px;
@@ -11,9 +11,9 @@
   margin-bottom: 0px;
   position: relative;
 }
-
-
-
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255,255,255,0.8);
+}
 
 .magnifying-glass{
   margin-right: 6px;

@@ -1,6 +1,7 @@
-<div class="wrapper">
+<div class="wrapper home-page">
   <div class="page-header first-section">
     <div class="banner">
+        <%= image_tag "http://res.cloudinary.com/dbp2j1emu/image/upload/v1512406889/logo_epuuso.svg", class: "home-logo" %>
       <div class="nav-link">
         <a href="#how">How it works</a>
         <a href="#team">Team</a>
@@ -15,7 +16,8 @@
     <a name="how"></a>
     <h2 class= "secondtitle">How it works</h2>
     <div class="row">
-      <p class="col-md-8 col-md-offset-2 seconddesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aperiam quis nostrum, illum, molestiae, officiis perspiciatis ex ad, voluptate quibusdam ipsum. Quibusdam, aperiam, ducimus. Possimus sequi voluptate debitis tempore, esse.</p>
+      <p class="col-md-8 col-md-offset-2 seconddesc">To get started you will have to login with a LinkedIn account. If you don't have one you can make one for free here <a href="https://www.linkedin.com/">Linked In</a>. After you have logged in you can directly start searching for companies that fit your skillset via tools that they use in the company. Exampels: PHP, Ruby on Rails, Javascript. Now you browse the companies and find the ones that you like best. You will see contacts that you can add to your Leads dashboard. You can directly contact them by sending them an email or find them on LinkedIn. The Leads section allows you to keep track of everyone you want to contact and what progress you made.
+      </p>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-3">
@@ -24,7 +26,7 @@
       </div>
       <div class="col-xs-12 col-sm-3">
         <i class="fa fa-search fa-3x lp-icon" aria-hidden="true"></i>
-        <p>Search for a company via skills</p>
+        <p>Search for a company via tools</p>
       </div>
       <div class="col-xs-12 col-sm-3">
         <i class="fa fa-address-card fa-3x lp-icon" aria-hidden="true"></i>
@@ -51,15 +53,17 @@
 
     <h2 class= "secondtitle">The Team</h2>
     <div class="row">
-      <p class="col-md-8 col-md-offset-2 seconddesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aperiam quis nostrum, illum, molestiae, officiis perspiciatis ex ad, voluptate quibusdam ipsum. Quibusdam, aperiam, ducimus. Possimus sequi voluptate debitis tempore, esse.</p>
+      <p class="col-md-8 col-md-offset-2 seconddesc">JobDetective has been created by Daniel Levelev and Alexander Pieczka. The website was made during a Le Wagon Bootcamp as Project.
+      We wanted to improve the connection between developers and companies that are interested in hiring them.
+      </p>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <%= image_tag("daniel levelev.png", class: "avatar_super") %>
+      <%= cl_image_tag("daniel_levelev-0f42d140ec3dfa5f1a4dcc187df433631b4312a89b923c9950853c83a8f5b30e_v5htfp.jpg", :gravity=>"faces", :width=>350, :crop=>"thumb", class: "avatar_super") %>
       <p>Daniel Levelev</p>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <%= image_tag("Alexander Pieczka.jpg", class: "avatar_super") %>
+      <%= cl_image_tag("Alexander_Pieczka_tpgk7u.jpg", :gravity=>"face", :height=>350, :width=>350, :crop=>"thumb", class: "avatar_super") %>
       <p>Alexander Pieczka</p>
     </div>
   </div>

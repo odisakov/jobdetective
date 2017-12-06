@@ -23,6 +23,18 @@
       })
     }
 
+    // function addDeleteButton(item, columnGrids){
+    //   var gridId = item._gridId;
+    //   var targetGrid = columnGrids.filter(function(grid) { return grid._id === gridId })[0];
+    //   var leadStatus = targetGrid.getElement().dataset.leadStatus;
+    //   var leadId = item.getElement().dataset.leadId;
+
+    //   $.ajax({
+    //     type: "GET",
+    //     dataType:
+    //   })
+    // }
+
     itemContainers.forEach(function (container) {
 
       var muuri = new Muuri(container, {
@@ -32,6 +44,12 @@
         dragEnabled: true,
         dragSort: function () {
           return columnGrids;
+        },
+        dragStartPredicate: function (item, event) {
+          // The item has not the class disabled
+          var isDraggable = !item._element.classList.contains('disabled');
+          // var isRemoveAction = elementMatches(event.target, '.card-remove, .card-remove i');
+          return isDraggable ? Muuri.ItemDrag.defaultStartPredicate(item, event) : false;
         },
         dragSortInterval: 0,
         dragContainer: document.body,
@@ -81,16 +99,15 @@
 
   });
 
-// var gridB = new Muuri('.board-column-working', {
-//     items: '.board-item',
-//     dragEnabled: true
-//   });
 
-// var gridC = new Muuri('.board-column-done', {
-//     items: '.board-item',
-//     dragEnabled: true
-//   });
+// Hover functions to disable dragable
+$(".mail-lead a, .company-link").hover(function(e){
+  $(event.target).parents('.board-item').addClass('disabled');
+});
 
+$(".mail-lead a, .company-link").mouseleave(function(){
+  $(event.target).parents('.board-item').removeClass('disabled');
+});
 
 
 

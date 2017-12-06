@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to companies_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag "logo.svg" %>
+  <%= image_tag "http://res.cloudinary.com/dbp2j1emu/image/upload/v1512406889/logo_epuuso.svg" %>
   <span class= "theme">| JobDetective</span>
   <% end %>
 
@@ -11,9 +11,13 @@
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
-    <%= link_to "Search", companies_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to(companies_path, :class => 'navbar-wagon-item navbar-wagon-link') do %>
+    <i class="fa fa-search"> </i>  Search
+    <% end %>
 
-    <%= link_to "Leads", leads_path, class: "navbar-wagon-item navbar-wagon-link" %>
+     <%= link_to(leads_path, :class => 'navbar-wagon-item navbar-wagon-link') do %>
+    <i class="fa fa-users"> </i>  Leads
+    <% end %>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -21,7 +25,7 @@
         <% if current_user.linkedin_pic_url %>
         <%= image_tag current_user.linkedin_pic_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
-        <%= image_tag "default_user.svg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag "http://res.cloudinary.com/dbp2j1emu/image/upload/v1512406809/default_user_nh5kcg.svg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
