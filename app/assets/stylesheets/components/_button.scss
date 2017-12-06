@@ -1,3 +1,27 @@
+.btn-return-left{
+  border-radius: 7px;
+  position: fixed;
+  top: 50%;
+  left: 60px;
+  height: 3em;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.btn-return-right{
+  border-radius: 7px;
+  position: fixed;
+  top: 50%;
+  right: 60px;
+  font-size: 30px;
+  height: 3em;
+  padding: 20px;
+}
+
 .btn-return{
   border-radius: 7px;
+  font-size: 20px;
+  height: 3em;
+  padding: 14px;
+  margin-top: 3em;
 }

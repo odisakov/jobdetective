@@ -97,9 +97,9 @@
 
 .card-white-lead-logo {
   position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 73px;
+  left: 25px;
+  top: 7px;
+  width: 69px;
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 2px 7px 0 rgba(0,0,0,0.2);
@@ -131,6 +131,14 @@
   // Text inside the Card
   h3{
     color: black;
+  }
+  h2{
+    font-size: 28px;
+    color: rgba(0,0,0,0.65);
+  }
+  p{
+    color: rgba(0,0,0,0.65);
+
   }
 }
 .card-white-description-main h2 {
@@ -175,7 +183,8 @@
   right: 10px;
   bottom: 10px;
   font-weight: 100;
-  width: 50px;
+  width: 74px;
+  border-radius: 6px;
 
   // A Call-to-Action-Button in the bottom right corner
 
