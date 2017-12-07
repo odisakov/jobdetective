@@ -40,11 +40,11 @@ users = JSON.parse(serialized_users)
 
 
 c = Company.find_by_name("Volders"),
-employees = c.users
+# employees = c.users
 
-employees.each do |user|
-  user.destroy
-end
+# employees.each do |user|
+#   user.destroy
+# end
 
 users.each do |user|
   u = User.new(
@@ -65,11 +65,11 @@ users = JSON.parse(serialized_users)
 
 
 c = Company.find_by_name("Movinga"),
-employees = c.users
+# employees = c.users
 
-employees.each do |user|
-  user.destroy
-end
+# employees.each do |user|
+#   user.destroy
+# end
 
 users.each do |user|
   u = User.new(
