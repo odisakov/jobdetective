@@ -1,0 +1,67 @@
+[
+    {
+        "id": "e_d47e5bff-99fe-4ed8-9a10-1de1732c8fbf",
+        "name": {
+            "fullName": "Jan Runo",
+            "givenName": "Jan",
+            "familyName": "Runo"
+        },
+        "title": "Co-founder",
+        "role": "founder",
+        "seniority": "executive",
+        "email": "jan.runo@movinga.de",
+        "verified": true
+    },
+    {
+        "id": "e_ae6e984c-866b-4672-8c62-7a7d412e9634",
+        "name": {
+            "fullName": "Chris Maslowski",
+            "givenName": "Chris",
+            "familyName": "Maslowski"
+        },
+        "title": "Founder",
+        "role": "founder",
+        "seniority": "executive",
+        "email": "chris@movinga.de",
+        "verified": true
+    },
+    {
+        "id": "e_f1e218c6-43c0-416c-9232-dbeeec21eb73",
+        "name": {
+            "fullName": "Lennart Will",
+            "givenName": "Lennart",
+            "familyName": "Will"
+        },
+        "title": "SVP Strategy",
+        "role": "operations",
+        "seniority": "executive",
+        "email": "lennart.will@movinga.de",
+        "verified": true
+    },
+    {
+        "id": "e_183ecd18-4b48-441c-ac41-2c0464247358",
+        "name": {
+            "fullName": "Dennis Gneuss",
+            "givenName": "Dennis",
+            "familyName": "Gneuss"
+        },
+        "title": "VP Product",
+        "role": "product",
+        "seniority": "executive",
+        "email": "dennis.gneuss@movinga.de",
+        "verified": true
+    },
+    {
+        "id": "e_55d90e51-67a9-4572-86e2-55d43025f9a1",
+        "name": {
+            "fullName": "Uwe Sandner",
+            "givenName": "Uwe",
+            "familyName": "Sandner"
+        },
+        "title": "CTO",
+        "role": "engineering",
+        "seniority": "executive",
+        "email": "uwe.sandner@movinga.de",
+        "verified": true
+    }
+]

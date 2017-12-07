@@ -1,0 +1,266 @@
+{
+  "hits": [
+    {
+      "id": 9421,
+      "email": "boris.diebold@babbel.com",
+      "encrypted_password": "$2a$11$C18CpuY6QkCDc1IhuT92D.0if7aUQBP5u7G8SEKGjRhZ3XuXXwPiu",
+      "reset_password_token": null,
+      "reset_password_sent_at": null,
+      "remember_created_at": null,
+      "sign_in_count": 0,
+      "current_sign_in_at": null,
+      "last_sign_in_at": null,
+      "current_sign_in_ip": null,
+      "last_sign_in_ip": null,
+      "created_at": "2017-12-06T15:50:21.773Z",
+      "updated_at": "2017-12-06T15:50:48.300Z",
+      "company_id": 9,
+      "provider": null,
+      "uid": null,
+      "first_name": "Boris",
+      "last_name": "Diebold",
+      "token": null,
+      "token_expiry": null,
+      "linkedin_pic_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAMCAAAAJGU5ZGYxNzdkLWVmZDgtNGY0YS1hN2ZlLTM3ZTlmZGI0Yjc0MQ.jpg",
+      "employment_role": "CTO",
+      "title": null,
+      "seniority": null,
+      "objectID": "9421",
+      "_highlightResult": {
+        "email": {
+          "value": "boris.diebold@<em>babbel</em>.com",
+          "matchLevel": "full",
+          "fullyHighlighted": false,
+          "matchedWords": [
+            "babbel"
+          ]
+        },
+        "encrypted_password": {
+          "value": "$2a$11$C18CpuY6QkCDc1IhuT92D.0if7aUQBP5u7G8SEKGjRhZ3XuXXwPiu",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "created_at": {
+          "value": "2017-12-06T15:50:21.773Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "updated_at": {
+          "value": "2017-12-06T15:50:48.300Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "first_name": {
+          "value": "Boris",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "last_name": {
+          "value": "Diebold",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "linkedin_pic_url": {
+          "value": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAMCAAAAJGU5ZGYxNzdkLWVmZDgtNGY0YS1hN2ZlLTM3ZTlmZGI0Yjc0MQ.jpg",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "employment_role": {
+          "value": "CTO",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "_rankingInfo": {
+        "nbTypos": 0,
+        "firstMatchedWord": 2,
+        "proximityDistance": 0,
+        "userScore": 675,
+        "geoDistance": 0,
+        "geoPrecision": 1,
+        "nbExactWords": 0,
+        "words": 1,
+        "filters": 0
+      }
+    },
+    {
+      "id": 9420,
+      "email": "markus.witte@babbel.com",
+      "encrypted_password": "$2a$11$60B9n/spwoN31ITHlzvBNeLXbpFMwCpsDreebbWMZkedPOR.j45RW",
+      "reset_password_token": null,
+      "reset_password_sent_at": null,
+      "remember_created_at": null,
+      "sign_in_count": 0,
+      "current_sign_in_at": null,
+      "last_sign_in_at": null,
+      "current_sign_in_ip": null,
+      "last_sign_in_ip": null,
+      "created_at": "2017-12-06T15:44:00.668Z",
+      "updated_at": "2017-12-06T15:44:14.263Z",
+      "company_id": 9,
+      "provider": null,
+      "uid": null,
+      "first_name": "Markus",
+      "last_name": "Witte",
+      "token": null,
+      "token_expiry": null,
+      "linkedin_pic_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/000/217/340/315a44f.jpg",
+      "employment_role": "Co-Founder & CEO",
+      "title": null,
+      "seniority": null,
+      "objectID": "9420",
+      "_highlightResult": {
+        "email": {
+          "value": "markus.witte@<em>babbel</em>.com",
+          "matchLevel": "full",
+          "fullyHighlighted": false,
+          "matchedWords": [
+            "babbel"
+          ]
+        },
+        "encrypted_password": {
+          "value": "$2a$11$60B9n/spwoN31ITHlzvBNeLXbpFMwCpsDreebbWMZkedPOR.j45RW",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "created_at": {
+          "value": "2017-12-06T15:44:00.668Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "updated_at": {
+          "value": "2017-12-06T15:44:14.263Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "first_name": {
+          "value": "Markus",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "last_name": {
+          "value": "Witte",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "linkedin_pic_url": {
+          "value": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/000/217/340/315a44f.jpg",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "employment_role": {
+          "value": "Co-Founder & CEO",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "_rankingInfo": {
+        "nbTypos": 0,
+        "firstMatchedWord": 2,
+        "proximityDistance": 0,
+        "userScore": 674,
+        "geoDistance": 0,
+        "geoPrecision": 1,
+        "nbExactWords": 0,
+        "words": 1,
+        "filters": 0
+      }
+    },
+    {
+      "id": 9419,
+      "email": "kristin.kosmella@babbel.com",
+      "encrypted_password": "$2a$11$guIieqD9cEO6vV0RRqSIx.KlWZhlO4RHNQ3U8P.IjSL2Ycb4vVQC2",
+      "reset_password_token": null,
+      "reset_password_sent_at": null,
+      "remember_created_at": null,
+      "sign_in_count": 0,
+      "current_sign_in_at": null,
+      "last_sign_in_at": null,
+      "current_sign_in_ip": null,
+      "last_sign_in_ip": null,
+      "created_at": "2017-12-06T15:35:08.257Z",
+      "updated_at": "2017-12-06T15:38:44.131Z",
+      "company_id": 9,
+      "provider": null,
+      "uid": null,
+      "first_name": "Kristin",
+      "last_name": "Kosmella",
+      "token": null,
+      "token_expiry": null,
+      "linkedin_pic_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/005/08b/370/0e15b52.jpg",
+      "employment_role": "Team Lead HR Admin",
+      "title": null,
+      "seniority": null,
+      "objectID": "9419",
+      "_highlightResult": {
+        "email": {
+          "value": "kristin.kosmella@<em>babbel</em>.com",
+          "matchLevel": "full",
+          "fullyHighlighted": false,
+          "matchedWords": [
+            "babbel"
+          ]
+        },
+        "encrypted_password": {
+          "value": "$2a$11$guIieqD9cEO6vV0RRqSIx.KlWZhlO4RHNQ3U8P.IjSL2Ycb4vVQC2",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "created_at": {
+          "value": "2017-12-06T15:35:08.257Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "updated_at": {
+          "value": "2017-12-06T15:38:44.131Z",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "first_name": {
+          "value": "Kristin",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "last_name": {
+          "value": "Kosmella",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "linkedin_pic_url": {
+          "value": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/005/08b/370/0e15b52.jpg",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "employment_role": {
+          "value": "Team Lead HR Admin",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "_rankingInfo": {
+        "nbTypos": 0,
+        "firstMatchedWord": 2,
+        "proximityDistance": 0,
+        "userScore": 672,
+        "geoDistance": 0,
+        "geoPrecision": 1,
+        "nbExactWords": 0,
+        "words": 1,
+        "filters": 0
+      }
+    }
+  ],
+  "nbHits": 3,
+  "page": 0,
+  "nbPages": 1,
+  "hitsPerPage": 10,
+  "processingTimeMS": 1,
+  "exhaustiveNbHits": true,
+  "query": "babbel",
+  "params": "query=babbel&hitsPerPage=10&page=0&attributesToRetrieve=*&highlightPreTag=%3Cais-highlight-0000000000%3E&highlightPostTag=%3C%2Fais-highlight-0000000000%3E&getRankingInfo=1&facets=%5B%5D&tagFilters=",
+  "index": "User",
+  "serverUsed": "c3-de-3.algolia.net",
+  "parsedQuery": "babbel",
+  "timeoutCounts": false,
+  "timeoutHits": false
+}
