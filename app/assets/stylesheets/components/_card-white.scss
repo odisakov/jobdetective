@@ -32,11 +32,13 @@
 }
 
 .card-white-main {
+  display: flex;
 
-  background-size: cover !important;
-  background-position: center;
 
-  position: relative;
+  // background-size: cover !important;
+  // background-position: center;
+
+  // position: relative;
   margin-bottom: 5px;
   margin-top: 15px;
   border-radius: 2px;
@@ -44,10 +46,14 @@
   box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 
   .logo-wrapper {
+    flex: 0 0 20%;
     display: flex;
     justify-content:center;
     align-items: center;
-    margin-top: 20px;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    background-position: cover;
+    background-position: 50% 50%;
+    background-size: cover;
   }
 }
 .company-border{
@@ -55,8 +61,15 @@
 }
 
 .company-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-bottom: 10px;
   h2 {
-
+    margin-top: 13px;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.80)
   }
 }
 
@@ -144,18 +157,18 @@
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
+  align-items: flex-start;
   // Text inside the Card
   h3{
     color: black;
   }
   h2{
-    font-size: 28px;
-    color: rgba(0,0,0,0.65);
-  }
-  p{
-    color: rgba(0,0,0,0.65);
+    font-size: 25px;
 
+    font-weight: 600;
+    color: rgba(0,0,0,0.55);
   }
+
 }
 
 .card-white-description-list{
@@ -269,7 +282,16 @@ p.company-card-description {
   font-size: 14px;
 }
 
+.badge {
+  color: white;
+  background-color: $brand-primary;
+}
 
+.employee-role-badge {
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+}
 
 
 
