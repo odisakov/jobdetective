@@ -22,7 +22,6 @@
 }
 
 .search-reply{
-  text-align: center;
   margin-top: 10px;
   font-size: 23px;
   font-weight: 550;
@@ -75,3 +74,8 @@ input:focus::-webkit-input-placeholder {
     opacity: 0;
 }
 
+#every-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
