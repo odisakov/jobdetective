@@ -48,7 +48,7 @@ users = JSON.parse(serialized_users)
 
 users.each do |user|
   u = User.new(
-    company: 1478,
+    company_id: 1478,
     email: user["email"],
     password: Faker::Crypto.md5,
     linkedin_pic_url: "http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512407043/default_user_dizcx8.jpg",
@@ -73,7 +73,7 @@ users = JSON.parse(serialized_users)
 
 users.each do |user|
   u = User.new(
-    company: 1376,
+    company_id: 1376,
     email: user["email"],
     password: Faker::Crypto.md5,
     linkedin_pic_url: "http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512407043/default_user_dizcx8.jpg",
