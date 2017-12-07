@@ -15,14 +15,13 @@
     </div>
   </div>
 
-  <i class="fa fa-search magnifying-glass" aria-hidden="true"></i>
 </div>
 
 <div class="search-reply">
   <div class="wrapper">
     <div id="every-day">
       <% if params[:tool] %>
-      <p>They are using <strong><%= params[:tool] %></strong> every day</p></div>
+      <h3>They are using <strong><%= params[:tool] %></strong> every day</h3></div>
 
       <% end %>
     </div>
@@ -106,7 +105,7 @@
         })
 
         $('.companies-list').html(htmlData);
-        $('#every-day').html(`<p>They are using <strong>${searchText}</strong> every day</p>`);
+        $('#every-day').html(`<h3>They are using <strong>${searchText}</strong> every day</h3>`);
 
 
       })
