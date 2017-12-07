@@ -39,7 +39,7 @@ serialized_users = File.read(filepath)
 users = JSON.parse(serialized_users)
 
 
-c = Company.find_by_name("Volders"),
+# c = Company.find_by_name("Volders"),
 # employees = c.users
 
 # employees.each do |user|
@@ -48,7 +48,7 @@ c = Company.find_by_name("Volders"),
 
 users.each do |user|
   u = User.new(
-    company: c,
+    company: Company.find_by_name("Volders"),
     email: user["email"],
     password: Faker::Crypto.md5,
     linkedin_pic_url: "http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512407043/default_user_dizcx8.jpg",
@@ -64,7 +64,7 @@ serialized_users = File.read(filepath)
 users = JSON.parse(serialized_users)
 
 
-c = Company.find_by_name("Movinga"),
+# c = Company.find_by_name("Movinga"),
 # employees = c.users
 
 # employees.each do |user|
@@ -73,7 +73,7 @@ c = Company.find_by_name("Movinga"),
 
 users.each do |user|
   u = User.new(
-    company: c,
+    company: Company.find_by_name("Movinga"),
     email: user["email"],
     password: Faker::Crypto.md5,
     linkedin_pic_url: "http://res.cloudinary.com/dbp2j1emu/image/upload/q_auto:eco/v1512407043/default_user_dizcx8.jpg",
