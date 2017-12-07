@@ -66,7 +66,7 @@
     var client = algoliasearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_SEARCH'] %>');
 
     var index = client.initIndex('Company');
-    index.search(searchText, { hitsPerPage: 10, page: 0 })
+    index.search(searchText, { hitsPerPage: 100, page: 0 })
     .then(function searchDone(content) {
         // console.log(options)
         console.log(content.hits)
@@ -80,20 +80,20 @@
 
         e = `
         <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="card-white effect">
-        <div class="col-xs-4 text-center">
-        <img src="${element.logo_url}" class="card-white-logo-main">
-        </div>
-        <div class="card-white-description-main col-xs-8">
-        <h2>${element.name}</h2>
-        <p>${element.short_description}</p>
-        </div>
-        </div>
+          <div class="card-white effect">
+            <div class="col-xs-4 text-center">
+              <img src="${element.logo_url}" class="card-white-logo-main">
+            </div>
+            <div class="card-white-description-main col-xs-8">
+              <h2>${element.name}</h2>
+              <p>${element.short_description}</p>
+            </div>
+            <a href="/companies/${element.id}" class="card-white-link"></a>
 
-        <a href="/companies/${element.id}" class="card-white-link"></a>
 
-        <div class="clearer">
-        </div>
+            <div class="clearer">
+            </div>
+          </div>
         </div>
 
 
