@@ -12,11 +12,13 @@
   flex-direction: column;
   width: 115px;
   box-shadow: 2px 2px 1px lightblue;
+  border: none;
 
    &:hover{
     opacity: 1;
     transform: translateY(-1px);
     background-color: #007FDB;
+    border: none;
 
   }
 }
