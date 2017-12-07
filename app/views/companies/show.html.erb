@@ -67,28 +67,45 @@
 
     <div class="col-xs-12 col-md-5 col-md-push-1  ">
       <div class="card-white">
-        <div class="card-white-lead-category">
-          <ul class="list-inline">
-            <li>
-              <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}%20#{@company.name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </li>
-            <% if user.email %>
-            <li>
-              <a href=<%="mailto:#{user.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
-            </div>
-          </li>
-          <% end %>
-        </ul>
-        <div class="card-white-description-leads">
-          <h2><%= "#{user.first_name} #{user.last_name}"%></h2>
-          <p><%= "#{user.employment_role}" %></p>
+        <div class="card-part-left">
+          <div class="image-lead-container" style="background-image: url('<%= image_path user.linkedin_pic_url %>');">
+            <%# image_tag user.linkedin_pic_url %>
+          </div>
+
         </div>
-        <% if Lead.where(user_id: current_user, person:user).first %>
-        <%= link_to user_leads_path(user), method: :post, remote: true, class: "btn btn-success disabled btn-sm  card-white-cta-buton", id: "lead-button-disabled-#{user.id}" do %><span class="fa fa-check fa-1x"></span><% end %>
-        <% else %>
-        <%= link_to 'Add', user_leads_path(user), method: :post, remote: true, class: "btn btn-warning btn-sm card-white-cta-buton", id: "lead-button-#{user.id}" %>
-        <% end %>
-        <%= image_tag user.linkedin_pic_url, class: "card-white-lead-logo" %>
+        <div class="card-part-right">
+          <div class="card-white-description-leads">
+            <h2><%= "#{user.first_name} #{user.last_name}"%></h2>
+            <p><%= "#{user.employment_role}" %></p>
+          </div>
+            <div class="card-white-description-list">
+              <ul class="list-inline leads-elements-list">
+                <li>
+                  <a href=<%="https://www.linkedin.com/search/results/index/?keywords=#{user.first_name}%20#{user.last_name}%20#{@company.name}" %> target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                </li>
+                <% if user.email %>
+                <li>
+                  <a href=<%="mailto:#{user.email}"%>><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            <% end %>
+              <div class="leads-addable">
+
+              <% if Lead.where(user_id: current_user, person:user).first %>
+              <%= link_to user_leads_path(user), method: :post, remote: true, class: "btn btn-success disabled btn-sm  card-white-cta-buton", id: "lead-button-disabled-#{user.id}" do %><span class="fa fa-check fa-1x"></span><% end %>
+              <% else %>
+              <%= link_to 'Add', user_leads_path(user), method: :post, remote: true, class: "btn btn-warning btn-sm card-white-cta-buton", id: "lead-button-#{user.id}" %>
+              <% end %>
+              </div>
+         </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="card-white-lead-category">
         <!-- <a class="card-white-link" href="#" ></a> -->
       </div>
     </div>
@@ -104,7 +121,7 @@
     </div>
     <div class="col-xs-6 text-right">
       <%= link_to leads_path, class: "btn btn-primary btn-return btn-return-right" do %><span class="fa fa-group fa-1x"></span>
-        <span class="page-sliders">Leads</span>
+      <span class="page-sliders">Leads</span>
       <% end %>
     </div>
   </div>
