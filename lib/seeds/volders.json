@@ -1,0 +1,67 @@
+[
+    {
+        "id": "e_8d93f191-3331-4155-8f6a-2f3c291f3023",
+        "name": {
+            "fullName": "Sarah Dittmann",
+            "givenName": "Sarah",
+            "familyName": "Dittmann"
+        },
+        "title": "Marketing Communications Manager",
+        "role": "marketing",
+        "seniority": "manager",
+        "email": "sarah.dittmann@volders.de",
+        "verified": true
+    },
+    {
+        "id": "e_00836384-884c-4335-b925-8cc0e09e05ff",
+        "name": {
+            "fullName": "Patrick Krzyzaniak",
+            "givenName": "Patrick",
+            "familyName": "Krzyzaniak"
+        },
+        "title": "Senior Online Marketing Manager, SEO, Sea, Smm",
+        "role": "marketing",
+        "seniority": "manager",
+        "email": "patrick.krzyzaniak@volders.de",
+        "verified": true
+    },
+    {
+        "id": "e_a98ab6da-f5a3-4665-be53-44134de5d38d",
+        "name": {
+            "fullName": "Iva Sa'adon",
+            "givenName": "Iva",
+            "familyName": "Sa'adon"
+        },
+        "title": null,
+        "role": null,
+        "seniority": null,
+        "email": "iva.saadon@volders.de",
+        "verified": true
+    },
+    {
+        "id": "e_464f8bd4-94ff-4387-b63e-f6fc77b1c19e",
+        "name": {
+            "fullName": "Florian Schmidt",
+            "givenName": "Florian",
+            "familyName": "Schmidt"
+        },
+        "title": "Software Developer",
+        "role": "engineering",
+        "seniority": null,
+        "email": "florian.schmidt@volders.de",
+        "verified": true
+    },
+    {
+        "id": "e_75ebca16-c256-460c-a754-2499670384f3",
+        "name": {
+            "fullName": "Philipp Rosenkranz",
+            "givenName": "Philipp",
+            "familyName": "Rosenkranz"
+        },
+        "title": null,
+        "role": null,
+        "seniority": null,
+        "email": "philipp.rosenkranz@volders.de",
+        "verified": true
+    }
+]

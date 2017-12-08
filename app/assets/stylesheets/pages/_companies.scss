@@ -22,7 +22,6 @@
 }
 
 .search-reply{
-  text-align: center;
   margin-top: 10px;
   font-size: 23px;
   font-weight: 550;
@@ -48,6 +47,7 @@
   text-align: center;
   background-color: rgba(0,0,0,0);
   outline: none;
+  padding-bottom: 13px;
 }
 .searchbtn{
   margin-bottom: 4.45px;
@@ -74,3 +74,19 @@ input:focus::-webkit-input-placeholder {
     opacity: 0;
 }
 
+#every-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-location-and-url {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  p:first-child {
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 600;
+    margin-right: 20px;
+  }
+}

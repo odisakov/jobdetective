@@ -1,3 +1,36 @@
+
+
 .btn-return{
+  justify-content: center;
+  padding-top: 10px;
   border-radius: 7px;
+  position: fixed;
+  top: 20px;
+  font-size: 20px;
+  opacity: 0.3;
+  display: flex;
+  width: 200px;
+  box-shadow: 2px 2px 1px lightblue;
+  border: none;
+
+   &:hover{
+    opacity: 1;
+    transform: translateY(-1px);
+    background-color: #007FDB;
+    border: none;
+
+  }
 }
+.btn-return-left{
+  left: 20px;
+}
+
+.btn-return-right{
+  right: 60px;
+}
+
+.page-sliders{
+  font-size: 20px;
+}
+
+
