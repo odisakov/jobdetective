@@ -29,23 +29,21 @@
       <div class="row">
         <div class="companies-list">
           <% @companies.each do |displaycard| %>
-
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <%= link_to company_path(displaycard) do %>
-            <div class="card-white effect">
-              <div class="col-xs-4 text-center">
-                <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
-              </div>
-              <div class="card-white-description-main col-xs-8">
-                <h2><%= displaycard.name %></h2>
-                <p><%= displaycard.short_description %></p>
-              </div>
+            <div class="hover-wrapper">
+              <div class="card-white effect">
+                <div class="card-company-picture">
+                  <%= image_tag displaycard.logo_url, class: "card-white-logo-main" %>
+                </div>
+                <div class="card-white-description-main">
+                  <h2><%= displaycard.name %></h2>
+                  <p class="location-card"><%= displaycard.city %>, <%= displaycard.country %></p>
+                  <p class="company-card-description"><%= displaycard.short_description %></p>
+                </div>
 
-              <%= link_to '', company_path(displaycard), class: "card-white-link" %>
-
-
-              <% end %>
-              <div class="clearer">
+                <%= link_to '', company_path(displaycard), class: "card-white-link" %>
+                <div class="clearer">
+                </div>
               </div>
             </div>
           </div>
@@ -79,23 +77,21 @@
 
         e = `
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="card-white effect">
-            <div class="col-xs-4 text-center">
-              <img src="${element.logo_url}" class="card-white-logo-main">
-            </div>
-            <div class="card-white-description-main col-xs-8">
-              <h2>${element.name}</h2>
-              <p>${element.short_description}</p>
-            </div>
-            <a href="/companies/${element.id}" class="card-white-link"></a>
-
-
-            <div class="clearer">
+          <div class="hover-wrapper">
+            <div class="card-white effect">
+              <div class="card-company-picture">
+                <img src="${element.logo_url}" class="card-white-logo-main">
+              </div>
+              <div class="card-white-description-main">
+                <h2>${element.name}</h2>
+                <p class="company-card-description">${element.short_description}</p>
+              </div>
+              <a href="/companies/${element.id}" class="card-white-link"></a>
+              <div class="clearer">
+              </div>
             </div>
           </div>
         </div>
-
-
         `;
 
           // e = `<h1>${element.name}</h1><br><p>${element.short_description}</p><br> <img src="${element.logo_url}" alt="" />`;

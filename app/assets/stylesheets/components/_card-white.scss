@@ -32,11 +32,13 @@
 }
 
 .card-white-main {
+  display: flex;
 
-  background-size: cover !important;
-  background-position: center;
 
-  position: relative;
+  // background-size: cover !important;
+  // background-position: center;
+
+  // position: relative;
   margin-bottom: 5px;
   margin-top: 15px;
   border-radius: 2px;
@@ -44,10 +46,14 @@
   box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 
   .logo-wrapper {
+    flex: 0 0 20%;
     display: flex;
     justify-content:center;
     align-items: center;
-    margin-top: 20px;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    background-position: cover;
+    background-position: 50% 50%;
+    background-size: cover;
   }
 }
 .company-border{
@@ -55,8 +61,15 @@
 }
 
 .company-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-bottom: 10px;
   h2 {
-
+    margin-top: 13px;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.80)
   }
 }
 
@@ -78,7 +91,6 @@
 
 
 .card-white-logo-main {
-  margin-top: 17px;
   width: 123px;
   border-radius: 50%;
   border: 3px solid white;
@@ -117,9 +129,17 @@
 }
 
 .card-white-description-main {
-  bottom: 10px;
-  left: 10px;
+  // bottom: 10px;
+  // left: 10px;
   // Text inside the Card
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10px;
+  h2 {
+
+  }
   h3{
     color: black;
   }
@@ -137,18 +157,18 @@
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
+  align-items: flex-start;
   // Text inside the Card
   h3{
     color: black;
   }
   h2{
-    font-size: 28px;
-    color: rgba(0,0,0,0.65);
-  }
-  p{
-    color: rgba(0,0,0,0.65);
+    font-size: 25px;
 
+    font-weight: 600;
+    color: rgba(0,0,0,0.55);
   }
+
 }
 
 .card-white-description-list{
@@ -172,11 +192,13 @@
 
 .card-white-description-main h2 {
   font-size: 30px;
-  color: rgba(0,0,0,0.61);
+  color: rgba(0,0,0,0.8);
+  font-weight: 600;
 }
 .card-white-description h2 {
   font-size: 30px;
-  color: rgba(0,0,0,0.61);
+  color: rgba(0,0,0,0.65);
+
 }
 .card-white-description-main p {
   font-size: 16px;
@@ -217,38 +239,59 @@
 
 }
 
-.effect {
+.hover-wrapper {
 
+  &:hover {
+    .clearer {
+      clear: both;
+    }
 
+    .effect {
 
-    transition: all 0.1s;
-    border-right:1px solid #f0f0f0;
-    border-bottom:1px solid #f0f0f0;
+      transform: scale(1.02, 1.02);
+      transition: transform 200ms ease-in-out;
+      box-shadow: 0px 0px 42px 0px #c6e7ffb8;
+      z-index:9999;
+      background-color:#fff;
+    }
 
   }
 
+    // .effect {
+    //   transition: all 0.1s;
+    //   border-right:1px solid #f0f0f0;
+    //   border-bottom:1px solid #f0f0f0;
+    // }
+
+}
 
 
 
+.card-company-picture {
+  flex: 0 0 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .clearer {
-    clear:both;
-  }
+p.location-card {
+  font-weight: 600;
+}
 
-  .effect:hover {
-    transform: scale(1.04, 1.04);
+p.company-card-description {
+  font-size: 14px;
+}
 
-        box-shadow: 0px 0px 42px 0px #c6e7ffb8;
-    z-index:9999;
+.badge {
+  color: white;
+  background-color: $brand-primary;
+}
 
-
-    background-color:#fff;
-  }
-
-
-
-
-
+.employee-role-badge {
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+}
 
 
 
